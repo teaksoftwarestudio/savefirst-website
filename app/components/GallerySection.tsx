@@ -1,3 +1,6 @@
+"use client";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import PhoneFrame from "./PhoneFrame";
 import PhoneHome from "./PhoneHome";
 import PhoneCheck from "./PhoneCheck";
@@ -118,34 +121,202 @@ function PhonePlan() {
 }
 
 const screens = [
-  { screen: <PhoneHome />, cap: "Home · Dashboard" },
-  { screen: <PhoneCheck />, cap: "Check · Pre-Spend" },
-  { screen: <PhoneCheckResult />, cap: "Check · Result" },
-  { screen: <PhoneGoals />, cap: "Goals · Overview" },
-  { screen: <PhoneTransactions />, cap: "Transactions · Feed" },
-  { screen: <PhonePlan />, cap: "Plan · Save-First" },
+  {
+    screen: <PhoneHome />,
+    label: "Home",
+    tag: "01",
+    title: "Your real spendable balance.",
+    body: "Savings come out first. What's left is genuinely yours — no hidden bills, no guessing.",
+  },
+  {
+    screen: <PhoneCheck />,
+    label: "Pre-Spend Check",
+    tag: "02",
+    title: "Should I buy this?",
+    body: "Type any amount. Get an honest answer in under 10 seconds, with the math in plain language.",
+  },
+  {
+    screen: <PhoneCheckResult />,
+    label: "Check Result",
+    tag: "03",
+    title: "Green light — or a better plan.",
+    body: "A clear verdict, your new balance, and one suggested action. No shame, no lecture.",
+  },
+  {
+    screen: <PhoneGoals />,
+    label: "Goals",
+    tag: "04",
+    title: "Every goal, funded first.",
+    body: "Each target gets its own bucket and a projected finish date. Progress you can actually see.",
+  },
+  {
+    screen: <PhoneTransactions />,
+    label: "Transactions",
+    tag: "05",
+    title: "Logging in five seconds flat.",
+    body: "Save First learns your recurring charges and never makes you re-enter the same coffee shop twice.",
+  },
+  {
+    screen: <PhonePlan />,
+    label: "Plan",
+    tag: "06",
+    title: "Set it once. It runs itself.",
+    body: "Choose a fixed amount or a percentage. The plan auto-allocates across every goal, every month.",
+  },
 ];
 
-export default function GallerySection() {
+function Slide({
+  item,
+  index,
+  total,
+  progress,
+}: {
+  item: (typeof screens)[0];
+  index: number;
+  total: number;
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const step = 1 / total;
+  const s = index * step;
+  const e = s + step;
+  const enter = s + step * 0.15;
+  const exit  = e - step * 0.15;
+
+  const opacity = useTransform(progress, [s, enter, exit, e], [0, 1, 1, 0]);
+  const phoneY  = useTransform(progress, [s, enter, exit, e], [60, 0, 0, -60]);
+  const copyY   = useTransform(progress, [s, enter, exit, e], [40, 0, 0, -40]);
+  const scale   = useTransform(progress, [s, enter, exit, e], [0.92, 1, 1, 0.92]);
+
   return (
-    <section className="gallery">
-      <div className="wrap">
-        <div className="section-head center">
-          <span className="eyebrow">Tour the app</span>
-          <h2>Polished, calm, surprisingly fast.</h2>
-          <p>Designed for iPhone first. Every screen earns its place.</p>
-        </div>
+    <motion.div
+      aria-hidden={index !== 0}
+      style={{
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        opacity,
+        pointerEvents: "none",
+      }}
+    >
+      <div className="gs-slide-inner">
+        {/* Phone */}
+        <motion.div className="gs-phone-col" style={{ y: phoneY, scale }}>
+          <PhoneFrame>{item.screen}</PhoneFrame>
+        </motion.div>
+
+        {/* Copy */}
+        <motion.div className="gs-copy-col" style={{ y: copyY }}>
+          <div className="gs-tag">{item.tag}</div>
+          <div className="gs-label">{item.label}</div>
+          <h2 className="gs-title">{item.title}</h2>
+          <p className="gs-body">{item.body}</p>
+        </motion.div>
       </div>
-      <div className="gallery-strip" id="gallery">
-        <div className="pad-l"></div>
-        {screens.map(({ screen, cap }) => (
-          <div key={cap} className="gallery-item">
-            <PhoneFrame>{screen}</PhoneFrame>
-            <div className="gallery-cap">{cap}</div>
-          </div>
+    </motion.div>
+  );
+}
+
+function ProgressBar({
+  index,
+  total,
+  progress,
+}: {
+  index: number;
+  total: number;
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const step = 1 / total;
+  const s = index * step;
+  const e = s + step;
+  const active = useTransform(progress, [s, (s + e) / 2, e], [0, 1, 0]);
+
+  return (
+    <div className="gs-prog-track">
+      <motion.div className="gs-prog-fill" style={{ scaleX: active, transformOrigin: "left" }} />
+    </div>
+  );
+}
+
+export default function GallerySection() {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: outerRef,
+    offset: ["start start", "end end"],
+  });
+  const total = screens.length;
+
+  return (
+    <div className="gs-outer" ref={outerRef} style={{ height: `${total * 100}vh` }}>
+      <div className="gs-sticky">
+
+        {/* Ambient background */}
+        <div className="gs-ambient" />
+
+        {/* Slides */}
+        {screens.map((item, i) => (
+          <Slide key={item.tag} item={item} index={i} total={total} progress={scrollYProgress} />
         ))}
-        <div className="pad-l"></div>
+
+        {/* Bottom HUD */}
+        <div className="gs-hud">
+          {/* Screen tabs */}
+          <div className="gs-tabs">
+            {screens.map((s, i) => (
+              <ProgressTab key={s.tag} index={i} total={total} item={s} progress={scrollYProgress} />
+            ))}
+          </div>
+
+          {/* Progress bars */}
+          <div className="gs-prog-row">
+            {screens.map((s, i) => (
+              <ProgressBar key={s.tag} index={i} total={total} progress={scrollYProgress} />
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll cue — fades out after first beat */}
+        <motion.div
+          className="gs-scroll-cue"
+          style={{ opacity: useTransform(scrollYProgress, [0, 0.06], [1, 0]) }}
+        >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
+            </svg>
+          </motion.div>
+          <span>Scroll to explore</span>
+        </motion.div>
+
       </div>
-    </section>
+    </div>
+  );
+}
+
+function ProgressTab({
+  index,
+  total,
+  item,
+  progress,
+}: {
+  index: number;
+  total: number;
+  item: (typeof screens)[0];
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const step = 1 / total;
+  const s = index * step;
+  const e = s + step;
+  const opacity = useTransform(progress, [s, s + step * 0.2, e - step * 0.2, e], [0.35, 1, 1, 0.35]);
+
+  return (
+    <motion.div className="gs-tab" style={{ opacity }}>
+      <span className="gs-tab-num">{item.tag}</span>
+      <span className="gs-tab-label">{item.label}</span>
+    </motion.div>
   );
 }

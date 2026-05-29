@@ -450,14 +450,168 @@ section.tight { padding: 80px 0; }
 .feat-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 600px; }
 .feat-visual .bg-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--brand) 18%, transparent), transparent 65%); z-index: -1; filter: blur(20px); }
 
-/* Gallery */
-.gallery { background: linear-gradient(180deg, var(--canvas) 0%, var(--canvas-2) 100%); padding-bottom: 0; overflow: hidden; }
-.gallery-strip { display: flex; gap: 28px; padding: 0 0 120px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding: 32px; }
-.gallery-strip::-webkit-scrollbar { display: none; }
-.gallery-strip .phone { flex-shrink: 0; scroll-snap-align: center; }
-.gallery-strip .pad-l { width: 24px; flex-shrink: 0; }
-.gallery-cap { text-align: center; font-size: 13px; color: var(--ink-3); margin-top: 12px; font-weight: 500; }
-.gallery-item { display: flex; flex-direction: column; align-items: center; }
+/* ── Gallery — sticky scroll showcase ── */
+.gs-outer { position: relative; }
+
+.gs-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--hero-bg-1) 0%, var(--hero-bg-2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient glow blobs */
+.gs-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 60% at 25% 50%, rgba(46,168,242,0.14), transparent 65%),
+    radial-gradient(ellipse 40% 45% at 78% 45%, rgba(16,166,90,0.10), transparent 65%);
+}
+
+/* Slide layout */
+.gs-slide-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 72px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 64px;
+}
+
+/* Phone column */
+.gs-phone-col { flex-shrink: 0; }
+
+/* Copy column */
+.gs-copy-col { color: white; }
+
+.gs-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  margin-bottom: 10px;
+}
+.gs-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+.gs-title {
+  font-size: clamp(32px, 3.4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 20px;
+}
+.gs-body {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.62);
+  max-width: 400px;
+}
+
+/* Bottom HUD */
+.gs-hud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 64px 36px;
+}
+
+.gs-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 14px;
+}
+.gs-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+.gs-tab-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brand-2);
+  letter-spacing: 0.1em;
+}
+.gs-tab-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+}
+
+/* Progress bars */
+.gs-prog-row {
+  display: flex;
+  gap: 6px;
+}
+.gs-prog-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.gs-prog-fill {
+  height: 100%;
+  background: var(--brand-2);
+  border-radius: 999px;
+  width: 100%;
+}
+
+/* Scroll cue */
+.gs-scroll-cue {
+  position: absolute;
+  right: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.35);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Mobile — revert to static stacked layout */
+@media (max-width: 860px) {
+  .gs-outer { height: auto !important; }
+  .gs-sticky {
+    position: relative;
+    height: auto;
+    padding: 80px 0 60px;
+  }
+  .gs-slide-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 32px;
+    padding: 0 24px;
+  }
+  .gs-body { margin: 0 auto; }
+  .gs-hud, .gs-scroll-cue { display: none; }
+}
 
 /* Pricing */
 .pricing { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
