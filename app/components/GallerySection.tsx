@@ -248,52 +248,71 @@ export default function GallerySection() {
   const total = screens.length;
 
   return (
-    <div className="gs-outer" ref={outerRef} style={{ height: `${total * 100}vh` }}>
-      <div className="gs-sticky">
+    <>
+      {/* ── Desktop sticky scroll ── */}
+      <div className="gs-outer gs-desktop" ref={outerRef} style={{ height: `${total * 100}vh` }}>
+        <div className="gs-sticky">
+          <div className="gs-ambient" />
 
-        {/* Ambient background */}
-        <div className="gs-ambient" />
+          {screens.map((item, i) => (
+            <Slide key={item.tag} item={item} index={i} total={total} progress={scrollYProgress} />
+          ))}
 
-        {/* Slides */}
-        {screens.map((item, i) => (
-          <Slide key={item.tag} item={item} index={i} total={total} progress={scrollYProgress} />
-        ))}
-
-        {/* Bottom HUD */}
-        <div className="gs-hud">
-          {/* Screen tabs */}
-          <div className="gs-tabs">
-            {screens.map((s, i) => (
-              <ProgressTab key={s.tag} index={i} total={total} item={s} progress={scrollYProgress} />
-            ))}
+          <div className="gs-hud">
+            <div className="gs-tabs">
+              {screens.map((s, i) => (
+                <ProgressTab key={s.tag} index={i} total={total} item={s} progress={scrollYProgress} />
+              ))}
+            </div>
+            <div className="gs-prog-row">
+              {screens.map((s, i) => (
+                <ProgressBar key={s.tag} index={i} total={total} progress={scrollYProgress} />
+              ))}
+            </div>
           </div>
 
-          {/* Progress bars */}
-          <div className="gs-prog-row">
-            {screens.map((s, i) => (
-              <ProgressBar key={s.tag} index={i} total={total} progress={scrollYProgress} />
+          <motion.div
+            className="gs-scroll-cue"
+            style={{ opacity: useTransform(scrollYProgress, [0, 0.06], [1, 0]) }}
+          >
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
+              </svg>
+            </motion.div>
+            <span>Scroll to explore</span>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ── Mobile static list ── */}
+      <div className="gs-mobile gs-sticky" style={{ position: "relative", height: "auto" }}>
+        <div className="gs-ambient" />
+        <div style={{ position: "relative", zIndex: 1, padding: "72px 0 80px" }}>
+          <div style={{ textAlign: "center", marginBottom: 56, padding: "0 24px" }}>
+            <span className="eyebrow" style={{ marginBottom: 16, display: "block" }}>Tour the app</span>
+            <h2 style={{ color: "white", marginBottom: 14 }}>Polished, calm, surprisingly fast.</h2>
+            <p style={{ color: "rgba(255,255,255,0.62)", fontSize: 16, maxWidth: 400, margin: "0 auto" }}>Designed for iPhone first. Every screen earns its place.</p>
+          </div>
+          <div className="gs-mobile-list">
+            {screens.map((item) => (
+              <div key={item.tag} className="gs-mobile-item">
+                <PhoneFrame>{item.screen}</PhoneFrame>
+                <div>
+                  <div className="gs-tag">{item.tag}</div>
+                  <div className="gs-label">{item.label}</div>
+                  <h2 className="gs-title">{item.title}</h2>
+                  <p className="gs-body">{item.body}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
-
-        {/* Scroll cue — fades out after first beat */}
-        <motion.div
-          className="gs-scroll-cue"
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.06], [1, 0]) }}
-        >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
-            </svg>
-          </motion.div>
-          <span>Scroll to explore</span>
-        </motion.div>
-
       </div>
-    </div>
+    </>
   );
 }
 
