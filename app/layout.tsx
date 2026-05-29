@@ -14,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="blue">
-      <body>{children}</body>
+      <body>
+        <div style={{ overflowX: "clip", position: "relative" }}>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
