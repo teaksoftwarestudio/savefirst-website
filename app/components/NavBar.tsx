@@ -1,9 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -16,6 +20,12 @@ export default function NavBar() {
   return (
     <>
       <header className={`nav${scrolled ? " nav-scrolled" : ""}`}>
+        {/* Scroll progress bar */}
+        <motion.div
+          className="nav-progress"
+          style={{ scaleX, transformOrigin: "left" }}
+        />
+
         <div className="wrap nav-inner">
           <a href="#" className="logo" aria-label="Save First" onClick={close}>
             <span className="logo-mark">SF</span>

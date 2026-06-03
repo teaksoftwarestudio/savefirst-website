@@ -74,6 +74,21 @@ function BottomNav({ active }: { active: string }) {
   );
 }
 
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { useCountUp } from "./useCountUp";
+
+function BalanceAmt() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+  const val = useCountUp(7455, 1400, inView, 2);
+  return (
+    <div className="bc-amt" ref={ref}>
+      ${val.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+    </div>
+  );
+}
+
 export default function PhoneHome() {
   return (
     <>
@@ -88,7 +103,7 @@ export default function PhoneHome() {
               </div>
               <div className="bc-info"><InfoIcon /></div>
             </div>
-            <div className="bc-amt">$7,455.00</div>
+            <BalanceAmt />
           </div>
 
           {/* Coming in next */}

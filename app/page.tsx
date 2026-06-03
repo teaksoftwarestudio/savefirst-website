@@ -9,8 +9,24 @@ import PhoneGoals from "./components/PhoneGoals";
 import GallerySection from "./components/GallerySection";
 import FAQ from "./components/FAQ";
 import Reveal from "./components/Reveal";
+import { Viz1, Viz2, Viz3 } from "./components/HowVizzes";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { useCountUp } from "./components/useCountUp";
+import ParallaxPhone from "./components/ParallaxPhone";
 
 const spring = { ease: [0.22, 1, 0.36, 1] as const, duration: 0.7 };
+
+function PriceAmt({ value, decimals = 2 }: { value: number; decimals?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  const val = useCountUp(value, 1200, inView, decimals);
+  return (
+    <span className="n" ref={ref}>
+      ${decimals > 0 ? val.toFixed(decimals) : Math.round(val)}
+    </span>
+  );
+}
 
 export default function Home() {
   return (
@@ -81,17 +97,65 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <motion.div
-            className="phone-stack"
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 0.92, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ ...spring, delay: 0.2 }}
-          >
+          <div className="phone-stack" aria-hidden="true">
+            {/* Back-left phone — slides in from left */}
+            <motion.div
+              className="phone p1"
+              initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.88 }}
+              animate={{ opacity: 1, x: 0, rotate: -6, scale: 1 }}
+              transition={{ type: "spring", stiffness: 60, damping: 18, delay: 0.35 }}
+            >
+              <div className="notch"></div>
+              <div className="screen">
+                <div className="viewport">
+                  <Statusbar />
+                  <div className="app"><PhoneGoals /></div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Center phone — rises from below */}
+            <motion.div
+              className="phone p2"
+              initial={{ opacity: 0, y: 60, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1.06 }}
+              transition={{ type: "spring", stiffness: 55, damping: 16, delay: 0.2 }}
+            >
+              <div className="notch"></div>
+              <div className="screen">
+                <div className="viewport">
+                  <Statusbar />
+                  <div className="app"><PhoneHome /></div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Back-right phone — slides in from right */}
+            <motion.div
+              className="phone p3"
+              initial={{ opacity: 0, x: 60, rotate: 10, scale: 0.88 }}
+              animate={{ opacity: 1, x: 0, rotate: 6, scale: 1 }}
+              transition={{ type: "spring", stiffness: 60, damping: 18, delay: 0.45 }}
+            >
+              <div className="notch"></div>
+              <div className="screen">
+                <div className="viewport">
+                  <Statusbar />
+                  <div className="app"><PhoneCheck /></div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Float chips — appear after phones, then float */}
             <motion.div
               className="float-chip fc-1"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+              transition={{
+                opacity: { type: "spring", stiffness: 80, damping: 14, delay: 0.7 },
+                scale:   { type: "spring", stiffness: 80, damping: 14, delay: 0.7 },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
+              }}
             >
               <div className="icon" style={{ background: "#d6f3e3" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10a65a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -107,8 +171,13 @@ export default function Home() {
 
             <motion.div
               className="float-chip fc-2"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1, y: [0, 10, 0] }}
+              transition={{
+                opacity: { type: "spring", stiffness: 80, damping: 14, delay: 0.85 },
+                scale:   { type: "spring", stiffness: 80, damping: 14, delay: 0.85 },
+                y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 },
+              }}
             >
               <div className="icon" style={{ background: "rgba(10,143,234,0.12)" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a8fea" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -121,37 +190,7 @@ export default function Home() {
                 <div className="val">2.4s to decide</div>
               </div>
             </motion.div>
-
-            <div className="phone p1">
-              <div className="notch"></div>
-              <div className="screen">
-                <div className="viewport">
-                  <Statusbar />
-                  <div className="app"><PhoneGoals /></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="phone p2">
-              <div className="notch"></div>
-              <div className="screen">
-                <div className="viewport">
-                  <Statusbar />
-                  <div className="app"><PhoneHome /></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="phone p3">
-              <div className="notch"></div>
-              <div className="screen">
-                <div className="viewport">
-                  <Statusbar />
-                  <div className="app"><PhoneCheck /></div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -170,62 +209,14 @@ export default function Home() {
           </Reveal>
           <div className="how-steps">
             {[
-              {
-                viz: (
-                  <div className="viz viz-1">
-                    <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id="g1" x1="0" x2="1" y1="0" y2="0">
-                          <stop offset="0" stopColor="var(--brand-2)" />
-                          <stop offset="1" stopColor="var(--brand)" />
-                        </linearGradient>
-                      </defs>
-                      <rect x="20" y="44" width="200" height="32" rx="16" fill="var(--line)" />
-                      <rect x="20" y="44" width="200" height="32" rx="16" fill="url(#g1)" />
-                      <text x="120" y="65" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="Poppins">Income · $3,200</text>
-                      <circle cx="40" cy="60" r="6" fill="white" />
-                    </svg>
-                  </div>
-                ),
-                n: "1",
-                title: "Tell us what comes in",
-                body: "Add your income and the bills you can't skip — rent, subscriptions, utilities. Two minutes, no bank linking.",
-              },
-              {
-                viz: (
-                  <div className="viz viz-2">
-                    <div className="pill-stack">
-                      <div className="pill a"></div>
-                      <div className="pill b"></div>
-                      <div className="pill c"></div>
-                      <div className="pill a" style={{ background: "var(--brand)", width: "75%" }}></div>
-                    </div>
-                  </div>
-                ),
-                n: "2",
-                title: "Save first, automatically",
-                body: "Set a savings target — a fixed dollar amount or a percent of income. It's allocated before anything else is spendable.",
-              },
-              {
-                viz: (
-                  <div className="viz viz-3">
-                    <div className="big-num">$2,847</div>
-                    <div className="check">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </div>
-                  </div>
-                ),
-                n: "3",
-                title: "Spend what's left, freely",
-                body: "Your spendable balance is the truth — everything else is taken care of. Buy the coffee. We did the math.",
-              },
+              { viz: <Viz1 />, n: "1", title: "Tell us what comes in", body: "Add your income and the bills you can't skip — rent, subscriptions, utilities. Two minutes, no bank linking." },
+              { viz: <Viz2 />, n: "2", title: "Save first, automatically", body: "Set a savings target — a fixed dollar amount or a percent of income. It's allocated before anything else is spendable." },
+              { viz: <Viz3 />, n: "3", title: "Spend what's left, freely", body: "Your spendable balance is the truth — everything else is taken care of. Buy the coffee. We did the math." },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 0.12}>
                 <motion.div
                   className="how-step"
-                  whileHover={{ y: -6, transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] } }}
+                  whileHover={{ y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
                 >
                   {step.viz}
                   <div className="n">{step.n}</div>
@@ -262,9 +253,7 @@ export default function Home() {
             </Reveal>
             <Reveal direction="right" className="feat-visual">
               <div className="bg-glow"></div>
-              <motion.div whileHover={{ y: -8, rotate: -1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}>
-                <PhoneFrame><PhoneHome /></PhoneFrame>
-              </motion.div>
+              <ParallaxPhone direction={-1}><PhoneFrame><PhoneHome /></PhoneFrame></ParallaxPhone>
             </Reveal>
           </div>
 
@@ -282,9 +271,7 @@ export default function Home() {
             </Reveal>
             <Reveal direction="left" className="feat-visual">
               <div className="bg-glow" style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 65%)" }}></div>
-              <motion.div whileHover={{ y: -8, rotate: 1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}>
-                <PhoneFrame><PhoneCheck /></PhoneFrame>
-              </motion.div>
+              <ParallaxPhone direction={1}><PhoneFrame><PhoneCheck /></PhoneFrame></ParallaxPhone>
             </Reveal>
           </div>
 
@@ -302,9 +289,7 @@ export default function Home() {
             </Reveal>
             <Reveal direction="right" className="feat-visual">
               <div className="bg-glow"></div>
-              <motion.div whileHover={{ y: -8, rotate: -1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}>
-                <PhoneFrame><PhoneGoals /></PhoneFrame>
-              </motion.div>
+              <ParallaxPhone direction={-1}><PhoneFrame><PhoneGoals /></PhoneFrame></ParallaxPhone>
             </Reveal>
           </div>
 
@@ -322,7 +307,7 @@ export default function Home() {
             </Reveal>
             <Reveal direction="left" className="feat-visual">
               <div className="bg-glow"></div>
-              <motion.div whileHover={{ y: -8, rotate: 1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}>
+              <ParallaxPhone direction={1}>
                 <PhoneFrame>
                   <div className="scr" style={{ padding: "0 14px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "4px 0 14px" }}>
@@ -362,7 +347,7 @@ export default function Home() {
                     </div>
                   </div>
                 </PhoneFrame>
-              </motion.div>
+              </ParallaxPhone>
             </Reveal>
           </div>
         </div>
@@ -384,12 +369,12 @@ export default function Home() {
             <Reveal direction="left" delay={0.05}>
               <motion.div
                 className="price"
-                whileHover={{ y: -6, boxShadow: "0 24px 56px -12px rgba(18,23,42,0.14)", transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] } }}
+                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(18,23,42,0.16)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
               >
                 <h3>Free</h3>
                 <p className="blurb">The Save-First essentials, forever.</p>
                 <div className="amt">
-                  <span className="n">$0</span>
+                  <PriceAmt value={0} decimals={0} />
                   <span className="per">/ month</span>
                 </div>
                 <ul>
@@ -405,14 +390,14 @@ export default function Home() {
             <Reveal direction="right" delay={0.12}>
               <motion.div
                 className="price pro"
-                whileHover={{ y: -6, boxShadow: "0 24px 56px -12px rgba(10,143,234,0.35)", transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] } }}
+                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(10,143,234,0.4)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
               >
                 <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1 }}>
                   <span className="price-tag">Most popular</span>
                   <h3>Pro</h3>
                   <p className="blurb">For when money has more moving parts.</p>
                   <div className="amt">
-                    <span className="n">$4.99</span>
+                    <PriceAmt value={4.99} decimals={2} />
                     <span className="per">/ month</span>
                   </div>
                   <ul>
