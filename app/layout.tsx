@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Save First — Spend what's left after saving.",
@@ -13,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="blue">
+    <html lang="en" data-theme="blue" className={poppins.variable}>
       <body>
-        <div style={{ overflowX: "clip", position: "relative" }}>
+        <main style={{ overflowX: "clip", position: "relative" }}>
           {children}
-        </div>
+        </main>
       </body>
     </html>
   );
