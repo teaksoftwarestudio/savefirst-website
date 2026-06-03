@@ -200,7 +200,7 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 15px; font-weight: 500; color: var(--ink-2); transition: color 0.12s; }
 .nav-links a:hover { color: var(--ink); }
-.nav-cta { height: 42px; padding: 0 18px; font-size: 14.5px; }
+.nav-cta { height: 42px; padding: 0 18px; font-size: 14.5px; color: #fff !important; }
 
 /* Logo */
 .logo { display: inline-flex; align-items: center; gap: 10px; }
