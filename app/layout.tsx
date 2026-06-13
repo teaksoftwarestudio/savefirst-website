@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="blue" className={poppins.variable}>
+    <html lang="en" data-theme="green" className={poppins.variable}>
       <body>
         <main style={{ overflowX: "clip", position: "relative" }}>
           {children}

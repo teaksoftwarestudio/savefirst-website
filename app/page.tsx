@@ -179,8 +179,8 @@ export default function Home() {
                 y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 },
               }}
             >
-              <div className="icon" style={{ background: "rgba(10,143,234,0.12)" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a8fea" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <div className="icon" style={{ background: "rgba(14,159,110,0.12)" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e9f6e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
@@ -390,7 +390,7 @@ export default function Home() {
             <Reveal direction="right" delay={0.12}>
               <motion.div
                 className="price pro"
-                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(10,143,234,0.4)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
+                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(14,159,110,0.4)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
               >
                 <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1 }}>
                   <span className="price-tag">Most popular</span>
