@@ -14,6 +14,11 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { useCountUp } from "./components/useCountUp";
 import ParallaxPhone from "./components/ParallaxPhone";
+import AuroraBackground from "./components/AuroraBackground";
+import WordReveal from "./components/WordReveal";
+import MagneticButton from "./components/MagneticButton";
+import StatsBand from "./components/StatsBand";
+import AnimatedCounter from "./components/AnimatedCounter";
 
 const spring = { ease: [0.22, 1, 0.36, 1] as const, duration: 0.7 };
 
@@ -35,6 +40,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero" id="top">
+        <AuroraBackground />
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <motion.span
@@ -47,20 +53,17 @@ export default function Home() {
               Pre-Spend Check is live on iOS
             </motion.span>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.1 }}
-            >
-              Spend what&apos;s
-              <span className="hl">left after saving.</span>
-            </motion.h1>
+            <WordReveal
+              text="Spend what's"
+              delay={0.12}
+              highlight={<span className="hl">left after saving.</span>}
+            />
 
             <motion.p
               className="hero-sub"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.2 }}
+              transition={{ ...spring, delay: 0.42 }}
             >
               Save First is a calmer way to handle money. We move savings to the front of
               your month — then show you a spendable balance you can actually trust.
@@ -70,17 +73,17 @@ export default function Home() {
               className="hero-cta"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.32 }}
+              transition={{ ...spring, delay: 0.54 }}
             >
               <AppStoreBadge />
-              <a href="#how" className="btn btn-light">See how it works</a>
+              <MagneticButton href="#how" className="btn btn-light">See how it works</MagneticButton>
             </motion.div>
 
             <motion.div
               className="hero-meta"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0.44 }}
+              transition={{ ...spring, delay: 0.66 }}
             >
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
@@ -165,7 +168,9 @@ export default function Home() {
               </div>
               <div>
                 <div className="label">Savings on track</div>
-                <div className="val">+$520 this month</div>
+                <div className="val">
+                  +<AnimatedCounter value={520} prefix="$" duration={1800} /> this month
+                </div>
               </div>
             </motion.div>
 
@@ -193,6 +198,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <StatsBand />
 
       {/* HOW IT WORKS */}
       <section className="how" id="how">

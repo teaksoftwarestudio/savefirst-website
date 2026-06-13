@@ -97,6 +97,18 @@ body { overflow-x: clip; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
+/* Accessible focus ring — visible only for keyboard users */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--canvas), 0 0 0 5px color-mix(in srgb, var(--brand) 70%, transparent);
+  border-radius: 8px;
+}
+.hero :focus-visible,
+.cta-band :focus-visible,
+.gs-sticky :focus-visible {
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.4), 0 0 0 5px var(--brand-2);
+}
+
 .wrap {
   width: 100%;
   max-width: 1200px;
@@ -160,6 +172,20 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
 .btn-ghost:hover { border-color: var(--ink-3); }
 .btn-light { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px); }
 .btn-light:hover { background: rgba(255,255,255,0.15); }
+
+/* ── Magnetic shine button ── */
+.magnetic {
+  position: relative; overflow: hidden; isolation: isolate;
+  will-change: transform;
+}
+.magnetic .magnetic-label { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; }
+.magnetic .magnetic-shine {
+  position: absolute; top: 0; left: -120%; width: 80%; height: 100%; z-index: 0;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  transform: skewX(-18deg); transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.magnetic:hover .magnetic-shine { left: 140%; }
 
 /* App Store badge */
 .appstore {
@@ -232,7 +258,7 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
   overflow: hidden;
 }
 .hero::before {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 1;
   background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 48px 48px;
@@ -241,7 +267,7 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
 }
 .hero-grid {
   display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
@@ -256,14 +282,76 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
 .hero h1 { color: white; margin-bottom: 22px; }
 .hero h1 .hl {
   display: block;
-  background: linear-gradient(95deg, #ffffff 30%, var(--brand-2) 60%, #8ee9bf 95%);
+  background: linear-gradient(95deg, #ffffff 18%, var(--brand-2) 50%, #8ee9bf 78%, #ffffff 110%);
+  background-size: 220% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 0.08em;
+  animation: hl-sheen 7s ease-in-out infinite;
 }
+@keyframes hl-sheen {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Eyebrow pill — soft pulsing glow */
+.hero-eyebrow .pill {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: pill-pulse 2.6s ease-out infinite;
+}
+@keyframes pill-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+
+/* ── Aurora glow layer ── */
+.aurora { position: absolute; inset: 0; z-index: 0; pointer-events: auto; overflow: hidden; }
+.aurora-blob {
+  position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55;
+  will-change: transform;
+}
+.aurora-blob-1 {
+  width: 620px; height: 620px; top: -180px; left: -120px;
+  background: radial-gradient(circle, rgba(20,184,127,0.55), transparent 62%);
+}
+.aurora-blob-2 {
+  width: 560px; height: 560px; bottom: -220px; right: -140px;
+  background: radial-gradient(circle, rgba(13,200,150,0.40), transparent 62%);
+}
+.aurora-spot { position: absolute; inset: 0; mix-blend-mode: screen; }
 .hero-sub { font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.78); max-width: 520px; margin-bottom: 36px; }
 .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 .hero-meta { margin-top: 32px; display: flex; gap: 28px; flex-wrap: wrap; }
 .hero-meta .m { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: rgba(255,255,255,0.7); }
 .hero-meta .m svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+/* ── Stats / social-proof band ── */
+.stats-band {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 56px 0;
+  position: relative;
+}
+.stats-band::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 40%, transparent), transparent);
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.stat { text-align: center; padding: 8px 12px; position: relative; }
+.stat + .stat::before {
+  content: ""; position: absolute; left: 0; top: 14%; height: 72%; width: 1px;
+  background: var(--line);
+}
+.stat-num {
+  font-size: clamp(30px, 3.4vw, 44px); font-weight: 800; letter-spacing: -0.035em;
+  color: var(--ink); line-height: 1; display: inline-flex; align-items: center; gap: 4px;
+  background: linear-gradient(135deg, var(--ink), color-mix(in srgb, var(--brand) 65%, var(--ink)));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat-star { width: 0.6em; height: 0.6em; color: var(--brand); -webkit-text-fill-color: var(--brand); }
+.stat-label { font-size: 14px; font-weight: 600; color: var(--ink-2); margin-top: 12px; line-height: 1.35; }
+.stat-note { font-size: 12px; font-weight: 500; color: var(--ink-4); margin-top: 3px; }
 
 /* Phone stack */
 .phone-stack { position: relative; height: 720px; }
@@ -504,8 +592,19 @@ section.tight { padding: 80px 0; }
 /* How it works */
 .how { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
-.how-step { position: relative; padding: 36px 28px; background: var(--canvas-2); border-radius: 24px; border: 1px solid var(--line); }
-.how-step .n { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: white; font-size: 15px; font-weight: 700; margin-bottom: 20px; }
+.how-step { position: relative; padding: 36px 28px; background: var(--canvas-2); border-radius: 24px; border: 1px solid var(--line); overflow: hidden; }
+.how-step::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.how-step:hover::before { opacity: 1; }
+.how-step .n {
+  display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+  border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--brand-deep));
+  color: white; font-size: 15px; font-weight: 700; margin-bottom: 20px;
+  box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--brand) 50%, transparent);
+}
 .how-step h3 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.02em; }
 .how-step p { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
 .how-step .viz { height: 140px; margin-bottom: 28px; border-radius: 16px; background: var(--paper); border: 1px solid var(--line); display: grid; place-items: center; position: relative; overflow: hidden; }
