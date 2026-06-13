@@ -126,13 +126,6 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--brand);
 }
-.eyebrow::before {
-  content: "";
-  width: 18px;
-  height: 1.5px;
-  background: currentColor;
-  display: inline-block;
-}
 
 h1, h2, h3, h4 {
   margin: 0;
