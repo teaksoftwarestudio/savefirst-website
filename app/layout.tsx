@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+// Display / headings — modern, premium grotesk
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
   preload: true,
-  variable: "--font-poppins",
+  variable: "--font-display",
+});
+
+// Body / UI — highly legible humanist sans
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="green" className={poppins.variable}>
+    <html lang="en" data-theme="green" className={`${sora.variable} ${inter.variable}`}>
       <body>
         <main style={{ overflowX: "clip", position: "relative" }}>
           {children}
