@@ -28,8 +28,12 @@ export default function NavBar() {
 
         <div className="wrap nav-inner">
           <a href="#" className="logo" aria-label="Save First" onClick={close}>
-            <span className="logo-mark">SF</span>
-            <span className="logo-word">Save&nbsp;First</span>
+            <img
+              src="/assets/savefirst-wordmark-color.svg"
+              alt="Save First"
+              height={36}
+              style={{ display: "block", height: 36, width: "auto" }}
+            />
           </a>
 
           {/* Desktop nav */}

@@ -319,8 +319,12 @@ export default function Home() {
             <Reveal direction="up" delay={0}>
               <div className="footer-col footer-about">
                 <a href="#" className="logo">
-                  <span className="logo-mark">SF</span>
-                  <span className="logo-word">Save&nbsp;First</span>
+                  <img
+                    src="/assets/savefirst-wordmark-color.svg"
+                    alt="Save First"
+                    height={32}
+                    style={{ display: "block", height: 32, width: "auto" }}
+                  />
                 </a>
                 <p>A calmer way to think about money. Save what matters, spend what&apos;s left.</p>
               </div>
