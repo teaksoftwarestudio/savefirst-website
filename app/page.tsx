@@ -100,7 +100,7 @@ export default function Home() {
           </div>
 
           <div className="phone-stack" aria-hidden="true">
-            {/* Back-left phone — slides in from left */}
+            {/* Back-left phone */}
             <motion.div
               className="phone p1"
               initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.88 }}
@@ -132,7 +132,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Back-right phone — slides in from right */}
+            {/* Back-right phone */}
             <motion.div
               className="phone p3"
               initial={{ opacity: 0, x: 60, rotate: 10, scale: 0.88 }}
