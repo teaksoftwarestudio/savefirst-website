@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import NavBar from "./components/NavBar";
 import AppStoreBadge from "./components/AppStoreBadge";
-import PhoneFrame, { Statusbar } from "./components/PhoneFrame";
+import { Statusbar } from "./components/PhoneFrame";
 import PhoneHome from "./components/PhoneHome";
 import PhoneCheck from "./components/PhoneCheck";
 import PhoneGoals from "./components/PhoneGoals";
@@ -12,7 +12,7 @@ import { Viz1, Viz2, Viz3 } from "./components/HowVizzes";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { useCountUp } from "./components/useCountUp";
-import ParallaxPhone from "./components/ParallaxPhone";
+import HorizontalShowcase from "./components/HorizontalShowcase";
 import AuroraBackground from "./components/AuroraBackground";
 import WordReveal from "./components/WordReveal";
 import MagneticButton from "./components/MagneticButton";
@@ -235,129 +235,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section className="features" id="features">
-        <div className="wrap">
-          <Reveal>
-            <div className="section-head">
-              <span className="eyebrow">Inside the app</span>
-              <h2>Quiet tools that do the worrying for you.</h2>
-            </div>
-          </Reveal>
-
-          {/* Row 1 */}
-          <div className="feat-row">
-            <Reveal direction="left" className="feat-copy">
-              <span className="eyebrow">Spendable Balance</span>
-              <h2>One number, total clarity.</h2>
-              <p>No more guessing whether you can afford something. Save First shows you a single, trustworthy figure — what&apos;s truly left after savings and essentials.</p>
-              <ul className="feat-list">
-                <li>Refreshed in real time as you spend</li>
-                <li>Accounts for upcoming bills and pay cycles</li>
-                <li>Visible on every screen — never hidden behind a tab</li>
-              </ul>
-            </Reveal>
-            <Reveal direction="right" className="feat-visual">
-              <div className="bg-glow"></div>
-              <ParallaxPhone direction={-1}><PhoneFrame><PhoneHome /></PhoneFrame></ParallaxPhone>
-            </Reveal>
-          </div>
-
-          {/* Row 2 */}
-          <div className="feat-row flip">
-            <Reveal direction="right" className="feat-copy">
-              <span className="eyebrow">Pre-Spend Check</span>
-              <h2>A 10-second second opinion.</h2>
-              <p>Before you check out, type the amount. Save First tells you what happens to your month, with the math in plain language and no shame attached.</p>
-              <ul className="feat-list">
-                <li>Shows your balance after the purchase, instantly</li>
-                <li>Flags risk to bills or your savings target</li>
-                <li>Suggests a single action — approve, wait, reduce, or skip</li>
-              </ul>
-            </Reveal>
-            <Reveal direction="left" className="feat-visual">
-              <div className="bg-glow" style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 65%)" }}></div>
-              <ParallaxPhone direction={1}><PhoneFrame><PhoneCheck /></PhoneFrame></ParallaxPhone>
-            </Reveal>
-          </div>
-
-          {/* Row 3 */}
-          <div className="feat-row">
-            <Reveal direction="left" className="feat-copy">
-              <span className="eyebrow">Goals &amp; Sinking Funds</span>
-              <h2>Save for what matters, on your terms.</h2>
-              <p>Build an emergency fund. Save for tuition, a trip, or a new lens. Each goal gets its own bucket and timeline — so you always know what your money is for.</p>
-              <ul className="feat-list">
-                <li>Priority goals stay funded automatically each month</li>
-                <li>Sinking funds smooth out predictable big expenses</li>
-                <li>Progress bars + projected finish dates, not vague vibes</li>
-              </ul>
-            </Reveal>
-            <Reveal direction="right" className="feat-visual">
-              <div className="bg-glow"></div>
-              <ParallaxPhone direction={-1}><PhoneFrame><PhoneGoals /></PhoneFrame></ParallaxPhone>
-            </Reveal>
-          </div>
-
-          {/* Row 4 */}
-          <div className="feat-row flip">
-            <Reveal direction="right" className="feat-copy">
-              <span className="eyebrow">Transactions</span>
-              <h2>Logging that doesn&apos;t feel like homework.</h2>
-              <p>Add an expense in under five seconds. We learn your recurring charges, surface unusual ones, and never make you re-enter the same coffee shop twice.</p>
-              <ul className="feat-list">
-                <li>One-tap recurring detection (rent, subscriptions, utilities)</li>
-                <li>Voice entry — say it, save it</li>
-                <li>Search, filter, and re-categorize without breaking your month</li>
-              </ul>
-            </Reveal>
-            <Reveal direction="left" className="feat-visual">
-              <div className="bg-glow"></div>
-              <ParallaxPhone direction={1}>
-                <PhoneFrame>
-                  <div className="scr" style={{ padding: "0 14px" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "4px 0 14px" }}>
-                      <h4 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em" }}>Transactions</h4>
-                      <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--brand)", color: "white", display: "grid", placeItems: "center", fontSize: 18, fontWeight: 600 }}>+</div>
-                    </div>
-                    <div style={{ display: "flex", gap: 6, marginBottom: 14, fontSize: 11, fontWeight: 600 }}>
-                      <div style={{ padding: "6px 12px", background: "var(--ink)", color: "white", borderRadius: 999 }}>All</div>
-                      <div style={{ padding: "6px 12px", background: "var(--paper)", border: "1px solid var(--line)", color: "var(--ink-3)", borderRadius: 999 }}>Income</div>
-                      <div style={{ padding: "6px 12px", background: "var(--paper)", border: "1px solid var(--line)", color: "var(--ink-3)", borderRadius: 999 }}>Expense</div>
-                    </div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ink-3)", textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 10 }}>Today</div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                      {[
-                        { bg: "#ffe9d6", icon: "☕", name: "Bluestone Lane", cat: "Food & Dining · 8:42 AM", amt: "−$6.50" },
-                        { bg: "#d6ecff", icon: "🚇", name: "MTA · Subway", cat: "Transport · 8:55 AM", amt: "−$2.90" },
-                        { bg: "#e3d6ff", icon: "🎬", name: "Netflix", cat: "Subscriptions · Recurring", amt: "−$15.49" },
-                      ].map((t) => (
-                        <div key={t.name} style={{ background: "var(--paper)", borderRadius: 12, padding: 12, display: "flex", alignItems: "center", gap: 10, boxShadow: "var(--shadow-soft)" }}>
-                          <div style={{ width: 34, height: 34, borderRadius: 10, background: t.bg, display: "grid", placeItems: "center", fontSize: 16 }}>{t.icon}</div>
-                          <div style={{ flex: 1 }}>
-                            <div style={{ fontSize: 12, fontWeight: 600 }}>{t.name}</div>
-                            <div style={{ fontSize: 10, color: "var(--ink-3)" }}>{t.cat}</div>
-                          </div>
-                          <div style={{ fontSize: 13, fontWeight: 700 }}>{t.amt}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ink-3)", textTransform: "uppercase", letterSpacing: ".06em", margin: "14px 0 10px" }}>Yesterday</div>
-                    <div style={{ background: "var(--paper)", borderRadius: 12, padding: 12, display: "flex", alignItems: "center", gap: 10, boxShadow: "var(--shadow-soft)" }}>
-                      <div style={{ width: 34, height: 34, borderRadius: 10, background: "#d6f3e3", display: "grid", placeItems: "center", fontSize: 16 }}>💼</div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: 12, fontWeight: 600 }}>Acme Co · Salary</div>
-                        <div style={{ fontSize: 10, color: "var(--ink-3)" }}>Income · Biweekly</div>
-                      </div>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: "var(--accent)" }}>+$1,600.00</div>
-                    </div>
-                  </div>
-                </PhoneFrame>
-              </ParallaxPhone>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      {/* FEATURES — horizontal scroll-driven showcase */}
+      <HorizontalShowcase />
 
       {/* PRICING */}
       <section className="pricing" id="pricing">

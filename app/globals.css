@@ -639,6 +639,248 @@ section.tight { padding: 80px 0; }
 .feat-visual .bg-glow { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--brand) 18%, transparent), transparent 65%); z-index: -1; filter: blur(20px); }
 
 
+/* ── Horizontal Showcase — scroll-driven carousel ── */
+
+/* Outer scroll container — height set inline per slide count */
+.hsc-outer { position: relative; }
+
+/* Sticky viewport — pins for the entire scroll travel */
+.hsc-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--hero-bg-1) 0%, var(--hero-bg-2) 100%);
+  display: flex;
+  flex-direction: column;
+  perspective: 1200px;
+}
+
+/* Ambient glow layer */
+.hsc-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.9s ease;
+  z-index: 0;
+}
+
+/* Main content layout */
+.hsc-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+}
+
+/* ── Copy column ── */
+.hsc-copy-col {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hsc-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  margin-bottom: 18px;
+}
+
+.hsc-title {
+  font-size: clamp(36px, 3.8vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.032em;
+  line-height: 1.04;
+  color: white;
+  margin: 0 0 22px;
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.hsc-body {
+  font-size: 18px;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.62);
+  max-width: 420px;
+  margin: 0 0 36px;
+}
+
+/* Dot nav */
+.hsc-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.hsc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.2);
+  transition: width 0.35s cubic-bezier(0.22,1,0.36,1), background 0.35s ease;
+}
+.hsc-dot.on {
+  width: 28px;
+  background: var(--brand-2);
+}
+
+/* Progress bar */
+.hsc-prog-track {
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  max-width: 280px;
+  margin-bottom: 28px;
+}
+.hsc-prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+  border-radius: 999px;
+  width: 100%;
+  transform-origin: left;
+}
+
+/* Scroll hint */
+.hsc-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+/* ── Phone carousel ── */
+.hsc-phone-viewport {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Track: 4 slots side by side, each 100% of viewport width */
+.hsc-track {
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  /* each slot is the width of this column — set via JS via x% */
+}
+
+.hsc-phone-slot {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Glow halo behind active phone */
+.hsc-phone-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(48px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Lift PhoneFrame above glow */
+.hsc-phone-slot > :last-child { position: relative; z-index: 1; }
+
+/* ── Bottom HUD tab strip ── */
+.hsc-hud {
+  display: flex;
+  gap: 0;
+  padding: 0 64px 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hsc-hudtab {
+  flex: 1;
+  padding: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+.hsc-hudtab.on { opacity: 1; }
+
+.hsc-hudtab-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-2);
+}
+.hsc-hudtab-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+}
+.hsc-hudtab-line {
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.hsc-hudtab-fill {
+  height: 100%;
+  background: var(--brand-2);
+  border-radius: 999px;
+  width: 100%;
+  transform-origin: left;
+}
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  .hsc-outer { height: auto !important; }
+  .hsc-sticky {
+    position: relative;
+    height: auto;
+    padding: 72px 0 80px;
+  }
+  .hsc-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 28px;
+  }
+  .hsc-copy-col { text-align: center; align-items: center; }
+  .hsc-body { max-width: 100%; }
+  .hsc-phone-viewport { height: 520px; }
+  .hsc-hud { display: none; }
+  .hsc-hint { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hsc-layout { padding: 0 20px; gap: 32px; }
+  .hsc-title { font-size: 32px; }
+  .hsc-body { font-size: 15px; }
+  .hsc-phone-viewport { height: 420px; }
+}
+
 /* Pricing */
 .pricing { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
