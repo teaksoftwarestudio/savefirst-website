@@ -6,7 +6,6 @@ import PhoneFrame, { Statusbar } from "./components/PhoneFrame";
 import PhoneHome from "./components/PhoneHome";
 import PhoneCheck from "./components/PhoneCheck";
 import PhoneGoals from "./components/PhoneGoals";
-import GallerySection from "./components/GallerySection";
 import FAQ from "./components/FAQ";
 import Reveal from "./components/Reveal";
 import { Viz1, Viz2, Viz3 } from "./components/HowVizzes";
@@ -359,8 +358,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <GallerySection />
 
       {/* PRICING */}
       <section className="pricing" id="pricing">
