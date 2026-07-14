@@ -64,8 +64,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.42 }}
             >
-              SaveFirst is a calmer way to handle money. We move savings to the front of
-              your month — then show you a spendable balance you can actually trust.
+              SaveFirst is a money clarity app for mindful spending. Build a
+              personal finance habit around saving first, covering what matters,
+              and knowing what’s safe to spend every day.
             </motion.p>
 
             <motion.div
