@@ -21,7 +21,7 @@ const items = [
   },
   {
     q: "Is there an Android version?",
-    a: "Android is on the roadmap. The current focus is making the iPhone experience as calm and trustworthy as possible. Join the newsletter from the App Store listing to hear when Android opens for testing.",
+    a: "Android is on the roadmap. The current focus is making the iPhone experience as calm and trustworthy as possible. Join the waitlist to hear when Android opens for testing.",
   },
   {
     q: "What if I miss my savings target one month?",

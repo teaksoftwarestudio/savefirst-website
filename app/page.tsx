@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import NavBar from "./components/NavBar";
-import AppStoreBadge from "./components/AppStoreBadge";
 import { Statusbar } from "./components/PhoneFrame";
 import PhoneHome from "./components/PhoneHome";
 import PhoneCheck from "./components/PhoneCheck";
@@ -42,16 +41,6 @@ export default function Home() {
         <AuroraBackground />
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <motion.span
-              className="hero-eyebrow"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...spring, delay: 0 }}
-            >
-              <span className="pill">New</span>
-              Pre-Spend Check is live on iOS
-            </motion.span>
-
             <WordReveal
               text="Spend what's"
               delay={0.12}
@@ -75,7 +64,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.54 }}
             >
-              <AppStoreBadge />
+              <MagneticButton href="#waitlist" className="btn btn-primary">Join waitlist</MagneticButton>
               <MagneticButton href="#how" className="btn btn-light">See how it works</MagneticButton>
             </motion.div>
 
@@ -268,7 +257,7 @@ export default function Home() {
                   <li>5 Pre-Spend Checks per month</li>
                   <li>CSV export</li>
                 </ul>
-                <button className="btn-pricing">Get the app</button>
+                <button className="btn-pricing">Join waitlist</button>
               </motion.div>
             </Reveal>
             <Reveal direction="right" delay={0.12}>
@@ -292,7 +281,7 @@ export default function Home() {
                     <li>Weekly recap &amp; insight cards</li>
                     <li>Priority email support</li>
                   </ul>
-                  <button className="btn-pricing">Start with Pro</button>
+                  <button className="btn-pricing">Join waitlist</button>
                 </div>
               </motion.div>
             </Reveal>
@@ -304,11 +293,11 @@ export default function Home() {
 
       {/* CTA BAND */}
       <Reveal direction="scale">
-        <section className="cta-band tight" id="download">
+        <section className="cta-band tight" id="waitlist">
           <div className="wrap">
             <h2>Spend lighter. Save sooner.</h2>
-            <p>SaveFirst is free on the App Store. Two minutes to set up, a lifetime less to worry about.</p>
-            <AppStoreBadge href="#" />
+            <p>Join the SaveFirst waitlist. We&apos;ll let you know when the iPhone app is ready.</p>
+            <MagneticButton href="#" className="btn btn-light">Join waitlist</MagneticButton>
           </div>
         </section>
       </Reveal>

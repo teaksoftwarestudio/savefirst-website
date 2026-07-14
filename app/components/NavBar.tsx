@@ -42,7 +42,7 @@ export default function NavBar() {
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
-            <a href="#download" className="btn btn-primary nav-cta">Download</a>
+            <a href="#waitlist" className="btn btn-primary nav-cta">Join waitlist</a>
           </nav>
 
           {/* Mobile hamburger */}
@@ -63,7 +63,7 @@ export default function NavBar() {
           <a href="#features" onClick={close}>Features</a>
           <a href="#pricing" onClick={close}>Pricing</a>
           <a href="#faq" onClick={close}>FAQ</a>
-          <a href="#download" className="btn btn-primary" onClick={close} style={{ width: "100%", justifyContent: "center" }}>Download</a>
+          <a href="#waitlist" className="btn btn-primary" onClick={close} style={{ width: "100%", justifyContent: "center" }}>Join waitlist</a>
         </nav>
       </div>
 

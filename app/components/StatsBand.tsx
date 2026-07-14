@@ -2,11 +2,21 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import AnimatedCounter from "./AnimatedCounter";
 
-const STATS = [
-  { value: 12000, suffix: "+", decimals: 0, label: "savers building the habit", note: "and counting" },
-  { value: 4.2, prefix: "$", suffix: "M", decimals: 1, label: "moved to savings first", note: "across the community" },
-  { value: 4.9, suffix: "", decimals: 1, label: "App Store rating", note: "from 1,800+ reviews", star: true },
-  { value: 92, suffix: "%", decimals: 0, label: "feel calmer about money", note: "after 30 days" },
+type Stat = {
+  value: number;
+  suffix: string;
+  decimals: number;
+  label: string;
+  note: string;
+  prefix?: string;
+  star?: boolean;
+};
+
+const STATS: Stat[] = [
+  { value: 100, suffix: "%", decimals: 0, label: "local-first by default", note: "your plan stays on your iPhone" },
+  { value: 0, suffix: "", decimals: 0, label: "bank links required", note: "manual setup in minutes" },
+  { value: 5, suffix: "", decimals: 0, label: "free Pre-Spend Checks", note: "included every month" },
+  { value: 1, suffix: "", decimals: 0, label: "daily money habit", note: "saving first, spending with clarity" },
 ];
 
 export default function StatsBand() {
