@@ -354,6 +354,11 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
   background: linear-gradient(135deg, var(--ink), color-mix(in srgb, var(--brand) 65%, var(--ink)));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
+.stat-kicker {
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
 .stat-star { width: 0.6em; height: 0.6em; color: var(--brand); -webkit-text-fill-color: var(--brand); }
 .stat-label { font-size: 14px; font-weight: 600; color: var(--ink-2); margin-top: 12px; line-height: 1.35; }
 .stat-note { font-size: 12px; font-weight: 500; color: var(--ink-4); margin-top: 3px; }

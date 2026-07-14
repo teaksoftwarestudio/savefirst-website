@@ -76,15 +76,15 @@ export default function Home() {
             >
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                Financial goals first
-              </div>
-              <div className="m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                Spend mindfully
+                Financial growth first
               </div>
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                 Know what’s safe to spend
+              </div>
+              <div className="m">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                Spend mindfully
               </div>
             </motion.div>
           </div>
