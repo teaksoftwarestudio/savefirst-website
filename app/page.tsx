@@ -76,15 +76,15 @@ export default function Home() {
             >
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                Local-first &amp; private
+                Financial goals first
               </div>
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                No bank linking required
+                Spend mindfully
               </div>
               <div className="m">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-                Built for iPhone
+                Know what’s safe to spend
               </div>
             </motion.div>
           </div>
