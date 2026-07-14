@@ -66,7 +66,7 @@ const SLIDES = [
   {
     tag: "02 / Pre-Spend Check",
     title: "A 10-second\nsecond opinion.",
-    body: "Type an amount before you buy. Save First runs the math instantly — and tells you exactly what happens to your month.",
+    body: "Type an amount before you buy. SaveFirst runs the math instantly — and tells you exactly what happens to your month.",
     accent: "#0e9f6e",
     screen: <PhoneCheck />,
   },

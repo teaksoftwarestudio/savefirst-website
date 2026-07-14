@@ -2,9 +2,9 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <a href="#" className="logo" aria-label="Save First">
+        <a href="#" className="logo" aria-label="SaveFirst">
           <span className="logo-mark">SF</span>
-          <span className="logo-word">Save&nbsp;First</span>
+          <span className="logo-word">SaveFirst</span>
           <span className="logo-tag">Logo placeholder</span>
         </a>
         <nav className="nav-links">

@@ -64,7 +64,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.42 }}
             >
-              Save First is a calmer way to handle money. We move savings to the front of
+              SaveFirst is a calmer way to handle money. We move savings to the front of
               your month — then show you a spendable balance you can actually trust.
             </motion.p>
 
@@ -205,7 +205,7 @@ export default function Home() {
         <div className="wrap">
           <Reveal>
             <div className="section-head">
-              <span className="eyebrow">The Save-First method</span>
+              <span className="eyebrow">The SaveFirst method</span>
               <h2>Most budgets fail because savings come last.</h2>
               <p>
                 We flip the order. Money for your future leaves the math first — what&apos;s
@@ -255,7 +255,7 @@ export default function Home() {
                 whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(18,23,42,0.16)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
               >
                 <h3>Free</h3>
-                <p className="blurb">The Save-First essentials, forever.</p>
+                <p className="blurb">The SaveFirst essentials, forever.</p>
                 <div className="amt">
                   <PriceAmt value={0} decimals={0} />
                   <span className="per">/ month</span>
@@ -306,7 +306,7 @@ export default function Home() {
         <section className="cta-band tight" id="download">
           <div className="wrap">
             <h2>Spend lighter. Save sooner.</h2>
-            <p>Save First is free on the App Store. Two minutes to set up, a lifetime less to worry about.</p>
+            <p>SaveFirst is free on the App Store. Two minutes to set up, a lifetime less to worry about.</p>
             <AppStoreBadge href="#" />
           </div>
         </section>
@@ -321,7 +321,7 @@ export default function Home() {
                 <a href="#" className="logo">
                   <img
                     src="/assets/savefirst-wordmark-color.svg"
-                    alt="Save First"
+                    alt="SaveFirst"
                     height={32}
                     style={{ display: "block", height: 32, width: "auto" }}
                   />
@@ -364,7 +364,7 @@ export default function Home() {
             </Reveal>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 Save First. Made with care for your future self.</span>
+            <span>© 2026 SaveFirst. Made with care for your future self.</span>
             <span className="legal">
               <a href="#">Privacy</a>
               <a href="#">Terms</a>

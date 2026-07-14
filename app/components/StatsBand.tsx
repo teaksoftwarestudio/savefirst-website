@@ -26,7 +26,7 @@ export default function StatsBand() {
   };
 
   return (
-    <section className="stats-band" aria-label="Save First in numbers">
+    <section className="stats-band" aria-label="SaveFirst in numbers">
       <div className="wrap">
         <motion.div
           className="stats-grid"

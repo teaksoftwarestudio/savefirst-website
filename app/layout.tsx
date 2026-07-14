@@ -21,9 +21,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Save First — Spend what's left after saving.",
+  title: "SaveFirst — Spend what's left after saving.",
   description:
-    "A calm, save-first money tracker for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
+    "SaveFirst is a calm money tracker for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

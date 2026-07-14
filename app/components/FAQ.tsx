@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const items = [
   {
-    q: "What is the Save-First method, really?",
-    a: "Traditional budgeting saves whatever's left at the end of the month — which is usually nothing. Save First flips that. We allocate your savings target as soon as income arrives, then show you the real, spendable balance underneath. You spend without guilt because the future is already taken care of.",
+    q: "What is the SaveFirst method, really?",
+    a: "Traditional budgeting saves whatever's left at the end of the month — which is usually nothing. SaveFirst flips that. We allocate your savings target as soon as income arrives, then show you the real, spendable balance underneath. You spend without guilt because the future is already taken care of.",
   },
   {
-    q: "Does Save First connect to my bank?",
-    a: "Not in the current version. Save First is local-first — your data lives on your iPhone, not on our servers. You can add transactions in seconds with voice or one-tap shortcuts, and we'll detect recurring charges automatically. Bank linking is planned for a future release, opt-in only.",
+    q: "Does SaveFirst connect to my bank?",
+    a: "Not in the current version. SaveFirst is local-first — your data lives on your iPhone, not on our servers. You can add transactions in seconds with voice or one-tap shortcuts, and we'll detect recurring charges automatically. Bank linking is planned for a future release, opt-in only.",
   },
   {
     q: "How does the Pre-Spend Check decide?",
@@ -17,7 +17,7 @@ const items = [
   },
   {
     q: "Is my financial data private?",
-    a: "Yes. Save First stores your transactions, goals, and plan locally on your device by default. Optional iCloud backup is end-to-end encrypted. We don&apos;t sell data, we don&apos;t run ads, and we don&apos;t have a &ldquo;growth&rdquo; team. You can export everything as CSV at any time.",
+    a: "Yes. SaveFirst stores your transactions, goals, and plan locally on your device by default. Optional iCloud backup is end-to-end encrypted. We don&apos;t sell data, we don&apos;t run ads, and we don&apos;t have a &ldquo;growth&rdquo; team. You can export everything as CSV at any time.",
   },
   {
     q: "Is there an Android version?",
@@ -25,7 +25,7 @@ const items = [
   },
   {
     q: "What if I miss my savings target one month?",
-    a: "You're not in trouble. Save First doesn't lecture you. We'll adjust the projection, suggest a smaller target if it's a pattern, and keep your goals on a realistic track. Life happens; the app is here to help you re-plan, not to score you.",
+    a: "You're not in trouble. SaveFirst doesn't lecture you. We'll adjust the projection, suggest a smaller target if it's a pattern, and keep your goals on a realistic track. Life happens; the app is here to help you re-plan, not to score you.",
   },
 ];
 

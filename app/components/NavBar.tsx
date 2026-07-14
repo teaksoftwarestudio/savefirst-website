@@ -27,10 +27,10 @@ export default function NavBar() {
         />
 
         <div className="wrap nav-inner">
-          <a href="#" className="logo" aria-label="Save First" onClick={close}>
+          <a href="#" className="logo" aria-label="SaveFirst" onClick={close}>
             <img
               src="/assets/savefirst-wordmark-color.svg"
-              alt="Save First"
+              alt="SaveFirst"
               height={36}
               style={{ display: "block", height: 36, width: "auto" }}
             />
