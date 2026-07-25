@@ -196,19 +196,19 @@ export default function Home() {
         <div className="wrap">
           <Reveal>
             <div className="section-head">
-              <span className="eyebrow">The SaveFirst method</span>
-              <h2>Most budgets fail because savings come last.</h2>
+              <h2>The SaveFirst method</h2>
               <p>
-                We flip the order. Money for your future leaves the math first — what&apos;s
-                left is genuinely yours to spend, with no guilt and no spreadsheet.
+                Most budgets fail because savings come last. We flip the order. Your future
+                gets paid first. What&apos;s left is genuinely yours to spend, with no guilt
+                and no spreadsheet.
               </p>
             </div>
           </Reveal>
           <div className="how-steps">
             {[
-              { viz: <Viz1 />, n: "1", title: "Tell us what comes in", body: "Add your income and the bills you can't skip — rent, subscriptions, utilities. Two minutes, no bank linking." },
-              { viz: <Viz2 />, n: "2", title: "Save first, automatically", body: "Set a savings target — a fixed dollar amount or a percent of income. It's allocated before anything else is spendable." },
-              { viz: <Viz3 />, n: "3", title: "Spend what's left, freely", body: "Your spendable balance is the truth — everything else is taken care of. Buy the coffee. We did the math." },
+              { viz: <Viz1 />, n: "1", title: "Tell us what comes in", body: "Add your income and recurring expenses. Set them once and they carry forward. No bank linking." },
+              { viz: <Viz2 />, n: "2", title: "Save first, automatically", body: "Set a savings target; a fixed dollar amount or a percent of income. It's allocated before anything else is spendable." },
+              { viz: <Viz3 />, n: "3", title: "Spend what's left, freely", body: "Your spendable balance is the truth, everything else is taken care of. Buy the coffee. We did the math." },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 0.12}>
                 <motion.div
