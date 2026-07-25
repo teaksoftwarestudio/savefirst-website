@@ -12,12 +12,15 @@ export default function MagneticButton({
   className = "",
   strength = 0.32,
   onClick,
+  external = false,
 }: {
   children: ReactNode;
   href?: string;
   className?: string;
   strength?: number;
   onClick?: () => void;
+  /** Open in a new tab (used for the off-site waitlist form). */
+  external?: boolean;
 }) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLAnchorElement>(null);
@@ -41,6 +44,8 @@ export default function MagneticButton({
     <motion.a
       ref={ref}
       href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       onClick={onClick}
       onMouseMove={onMove}
       onMouseLeave={reset}

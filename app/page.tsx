@@ -17,6 +17,7 @@ import WordReveal from "./components/WordReveal";
 import MagneticButton from "./components/MagneticButton";
 import StatsBand from "./components/StatsBand";
 import AnimatedCounter from "./components/AnimatedCounter";
+import { WAITLIST_URL } from "./constants";
 
 const spring = { ease: [0.22, 1, 0.36, 1] as const, duration: 0.7 };
 
@@ -64,7 +65,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.54 }}
             >
-              <MagneticButton href="#waitlist" className="btn btn-primary">Join waitlist</MagneticButton>
+              <MagneticButton href={WAITLIST_URL} external className="btn btn-primary">Join waitlist</MagneticButton>
               <MagneticButton href="#how" className="btn btn-light">See how it works</MagneticButton>
             </motion.div>
 
@@ -257,7 +258,7 @@ export default function Home() {
                   <li>5 Pre-Spend Checks per month</li>
                   <li>CSV export</li>
                 </ul>
-                <button className="btn-pricing">Join waitlist</button>
+                <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn-pricing">Join waitlist</a>
               </motion.div>
             </Reveal>
             <Reveal direction="right" delay={0.12}>
@@ -281,7 +282,7 @@ export default function Home() {
                     <li>Weekly recap &amp; insight cards</li>
                     <li>Priority email support</li>
                   </ul>
-                  <button className="btn-pricing">Join waitlist</button>
+                  <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn-pricing">Join waitlist</a>
                 </div>
               </motion.div>
             </Reveal>
@@ -297,7 +298,7 @@ export default function Home() {
           <div className="wrap">
             <h2>Spend lighter. Save sooner.</h2>
             <p>Join the SaveFirst waitlist. We&apos;ll let you know when the iPhone app is ready.</p>
-            <MagneticButton href="#" className="btn btn-light">Join waitlist</MagneticButton>
+            <MagneticButton href={WAITLIST_URL} external className="btn btn-light">Join waitlist</MagneticButton>
           </div>
         </section>
       </Reveal>

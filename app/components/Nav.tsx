@@ -1,3 +1,5 @@
+import { WAITLIST_URL } from "../constants";
+
 export default function Nav() {
   return (
     <header className="nav">
@@ -12,7 +14,7 @@ export default function Nav() {
           <a href="#features">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
-          <a href="#waitlist" className="btn btn-primary nav-cta">Join waitlist</a>
+          <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">Join waitlist</a>
         </nav>
       </div>
     </header>
