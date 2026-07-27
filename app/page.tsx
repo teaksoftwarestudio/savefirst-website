@@ -11,7 +11,7 @@ import { Viz1, Viz2, Viz3 } from "./components/HowVizzes";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { useCountUp } from "./components/useCountUp";
-import HorizontalShowcase from "./components/HorizontalShowcase";
+import FeatureShowcase from "./components/FeatureShowcase";
 import AuroraBackground from "./components/AuroraBackground";
 import WordReveal from "./components/WordReveal";
 import MagneticButton from "./components/MagneticButton";
@@ -226,8 +226,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES — horizontal scroll-driven showcase */}
-      <HorizontalShowcase />
+      {/* FEATURES — bento grid + interactive Pre-Spend Check */}
+      <FeatureShowcase />
 
       {/* PRICING */}
       <section className="pricing" id="pricing">
