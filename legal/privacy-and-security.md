@@ -2,7 +2,7 @@
 
 **Effective:** September 5, 2026 · **Last updated:** September 5, 2026
 
-SaveFirst is local-first. Your plan, your transactions and your goals live on your iPhone, not on our servers — because we do not have servers holding them. This page explains that in full, and covers how the app and the website are secured.
+SaveFirst is an account-based service. The money information you enter is stored on our servers so it is there when you sign in. This page sets out exactly what we hold, who else touches it, how long we keep it, and how it is protected.
 
 _Also published at https://savefirst.app/privacy_
 
@@ -10,11 +10,11 @@ _Also published at https://savefirst.app/privacy_
 
 ## The short version
 
-- **Your financial data stays on your device.** We do not receive it, store it, or have any way to look at it.
-- **There is no bank linking.** We never see or handle your bank credentials, because the app never asks for them.
-- **No ads, no data selling, no data sharing for advertising.** Ever.
-- **No accounts, no logins, no profiles.** Using the app does not require you to tell us who you are.
-- **You can export everything as a CSV file** at any time, and deleting the app deletes your data with it.
+- **SaveFirst needs an account and an internet connection.** Your plan, transactions and goals are stored on our servers, not only on your phone.
+- **There is no bank linking.** We never ask for, receive, or store bank credentials, and nothing is imported from your statements. Everything in the app is there because you entered it.
+- **We use Firebase for sign-in, analytics and crash reporting**, which means Google processes some data on our behalf. Named in full below.
+- **We do not sell your information**, do not run ads, and do not use your financial data for advertising or profiling.
+- **You can delete your account from inside the app**, and it really is deleted — every row, not a flag on a record.
 
 This summary is for orientation. The sections below are the full statement.
 
@@ -22,193 +22,258 @@ This summary is for orientation. The sections below are the full statement.
 
 ## 1. Who we are
 
-SaveFirst is made by **TEAK SOFTWARE STUDIO LLC**, a limited liability company registered in the State of Texas, United States. Where this policy says **“we”** or **“us”**, it means that company. We are the controller of the limited personal information described below.
+SaveFirst is made by **TEAK SOFTWARE STUDIO LLC**, a limited liability company registered in the State of Texas, United States. Where this policy says **“we”** or **“us”**, it means that company. We are the controller of the personal information described here.
 
-This policy covers the **SaveFirst app for iPhone** and the website at **savefirst.app**. It sits alongside our [Terms of Service](https://savefirst.app/terms).
+This policy covers the **SaveFirst mobile app** and the website at **savefirst.app**. It sits alongside our [Terms of Service](https://savefirst.app/terms).
 
-## 2. Our privacy principles
+## 2. Information you give us
 
-Most money apps are built server-first: your data goes to a company, and the privacy policy explains what that company promises to do with it. SaveFirst is built the other way round.
+### Account information
 
-- **Local-first by architecture, not by policy.** The protection comes from where the data physically sits, not from a promise about how we behave.
-- **Collect nothing we do not need.** The app works without an account, so we do not ask for one.
-- **No surveillance business model.** We make money from a paid tier, not from attention or data. There is no advertising, no ad SDK, and no analytics profile of you.
-- **Your data is portable and deletable.** Export it whenever you want; delete it by deleting the app.
+You sign in with Apple, Google, or an email address and password. Sign-in is handled by **Firebase Authentication** (Google), and we receive from it the identifiers needed to recognise you on return visits.
 
-## 3. What stays on your iPhone
-
-Everything you put into SaveFirst is written to storage on your own device. It is not transmitted to us. We list it here so you know what the app holds, not because we receive any of it.
-
-| Stored on your device | What it is |
+| What we store | Why |
 | --- | --- |
-| Your plan | Income amounts and dates, recurring bills, savings target as an amount or a percentage, minimum buffer. |
-| Transactions you log | Amount, date, category, optional merchant name, optional note, and whether you marked it a need or a want. |
-| Goals and sinking funds | Names, target amounts, due dates, monthly contributions, progress. |
-| Pre-Spend Check history | The checks you ran and the arithmetic behind each result. |
-| App settings | Preferences, notification choices, and display options. |
-| Voice entry audio | Speech is converted to text on your device using Apple’s speech recognition. We do not receive audio or transcripts. Apple’s handling of speech is governed by Apple’s own privacy policy and your device settings. |
+| Email address | Identifies your account and is how we contact you about it. |
+| Display name, if your provider supplies one | Shown in the app. Optional in practice. |
+| Firebase user ID | Links your sign-in provider to your SaveFirst account. |
+| Password hash, for email sign-up only | Verifies your password. We store a one-way Argon2 hash, never the password itself. |
 
-Because none of this reaches us, we cannot produce it, sell it, lose it in a breach of our systems, or hand it to anyone who asks — including in response to a subpoena. There is nothing on our side to hand over.
+If you sign in with Apple and use Apple’s *Hide My Email*, we only ever see the relay address Apple gives us.
+
+### The money information you enter
+
+This is the substance of the product, and it is stored on our servers so that it is available whenever you sign in. It includes:
+
+- income sources, amounts, pay cadence and expected pay dates;
+- recurring bills and subscriptions you have told us about, with amounts and due dates;
+- transactions you log — amount, date, category, merchant, an optional note, and whether you marked it a need or a want;
+- accounts you set up in the app and the balances you enter for them;
+- goals and sinking funds, with targets, due dates and contributions;
+- spending caps, tags, and investments you record;
+- Pre-Spend Checks you run and the decisions recorded from them;
+- your onboarding answers, including your timezone, currency, and the questions about what you want from the app.
+
+### When you email us
+
+We receive your email address, your message, and anything you attach, and we keep the thread so we can answer you.
+
+> **Never send us account numbers, card numbers, passwords, one-time codes, or bank statements.** We do not need them and no genuine message from us will ever ask for them. A screenshot with amounts blurred is almost always enough.
+
+## 3. Information collected automatically
+
+### Analytics
+
+The app uses **Firebase Analytics** (Google) to understand how features are used so we can improve them. It records automatically-collected events such as app opens and sessions, together with a Firebase installation identifier, your device model and operating system version, and an approximate region derived from your IP address. We do **not** send the amounts, merchants, notes, or any other content of your financial records to analytics.
+
+### Crash and diagnostic reports
+
+The app uses **Firebase Crashlytics** (Google) to report crashes and errors so we can fix them. A report contains the error, a stack trace, the device model and OS version, and the state of the app at the time. **Crash reports are labelled with your account identifier**, so that a crash you report to us can be found. Crash reporting is on by default in the current version of the app.
+
+### Server logs and abuse prevention
+
+Our API records standard operational logs — the time of a request, which endpoint was called, the response status, and a request identifier — so we can diagnose faults. Our rate limiting stores no raw addresses: an IP address or user identifier is converted into a keyed one-way digest before it is used as a counter key.
+
+### Authentication tokens
+
+When you sign in, your device is issued an access token and a refresh token so you are not asked to sign in repeatedly. These are stored on your device, described in Section 7.
 
 ## 4. What we never collect
 
 Stated plainly, so there is no ambiguity for you or for an App Store reviewer:
 
-- **No bank credentials.** There is no bank linking in the app, so it never asks for a username, password, or one-time code for any financial institution.
-- **No imported transactions.** Nothing is pulled from your bank, card, or statements. Everything in the app is there because you entered it.
-- **No card or payment details.** Purchases go through Apple, described in Section 6.
-- **No account, name, or password.** The app does not have sign-up.
-- **No advertising identifiers and no tracking.** We do not use the IDFA, we do not present App Tracking Transparency prompts because we have nothing to ask for, and we do not track you across apps or websites.
-- **No third-party analytics or crash-reporting SDKs.** There are none in the app.
-- **No location tracking, no contacts, no photo library access** for any purpose described in this policy.
-- **No sale of personal information, and no sharing of it for cross-context behavioural advertising.**
+- **No bank credentials.** There is no bank linking in the app. It never asks for a username, password, or one-time code for any financial institution, and we could not use one if you sent it.
+- **No imported transactions.** Nothing is pulled from your bank, card, or statements. Every record exists because you created it.
+- **No card or payment details.** The current version of the app sells nothing.
+- **No advertising identifiers, and no cross-app or cross-site tracking.** The app does not use the IDFA, does not present an App Tracking Transparency prompt, and contains no advertising SDK.
+- **No sale of personal information, and no sharing for cross-context behavioural advertising.**
+- **No access to your contacts, photos, location, SMS, or email inbox.** The only device permissions the app requests are the microphone and speech recognition, for voice entry, and notifications if you turn reminders on.
+- **No reading of your device’s messages to find receipts.** Some money apps do this. SaveFirst does not.
 
-Apple provides us with aggregate, anonymised App Store statistics — things like how many people downloaded the app, crash counts, and territory-level totals. These come from Apple, are not linked to you, and cannot be used by us to identify anyone.
+## 5. Voice input
 
-## 5. Apple backup and iCloud
+Voice entry is optional. It works only after you grant microphone and speech recognition permission, and only while you are actively using it.
 
-iOS may include SaveFirst data in your device backup, depending on the settings you have chosen with Apple. If you use iCloud Backup or iCloud sync, a copy of your app data may be stored in your own iCloud account.
+- **Speech becomes text using Apple’s speech recognition**, built into iOS. Depending on your device, language and settings, Apple may perform that recognition on the device or on Apple’s servers. That step is governed by Apple’s privacy policy, not ours, and we never receive the audio itself.
+- **The resulting text is sent to our servers to be interpreted** — to work out that “spent twelve dollars on coffee yesterday” is a transaction, and which fields it fills.
+- **Interpretation today is deterministic.** It runs on our own servers against a fixed set of rules. In the current version, **your transcript is not sent to any third-party AI provider.**
+- **The transcript is short-lived.** It is held only until you confirm or cancel the command, and is erased as soon as you do. Anything left unconfirmed expires and is erased automatically within about fifteen minutes. What remains afterwards is the transaction you confirmed — not the words you said.
 
-That copy is **yours and Apple’s, not ours**. It is stored under your Apple Account, protected by Apple’s encryption — including end-to-end encryption where you have enabled Advanced Data Protection — and governed by Apple’s privacy policy. We have no access to your iCloud account and cannot read, retrieve, or restore anything from it.
+We are building an AI-assisted fallback for commands the deterministic parser cannot interpret. If we switch it on, a transcript may be sent to an external AI provider — **OpenRouter** or **Groq** — for that single interpretation. **It is not enabled in the version of the app you are using**, and we will update this page and say so in the app before it is.
 
-You control this entirely in Settings on your device. Turning iCloud Backup off for SaveFirst keeps the data on the device alone.
+## 6. How we use information
 
-## 6. Purchases and the App Store
+We use what we hold to:
 
-SaveFirst Pro is sold as an auto-renewing subscription through the Apple App Store. **Apple processes the payment, not us.** We never see or store your card number, billing address, or Apple Account credentials.
+- run the service — store your plan, calculate your spendable balance, answer a Pre-Spend Check, track goals, and show your month;
+- keep your account working across sign-ins and devices;
+- send the reminders you switch on;
+- answer your support messages;
+- keep the service available, diagnose faults, and prevent abuse;
+- understand in aggregate which features are used, so we know what to improve;
+- meet a legal obligation where one applies.
 
-The app receives a purchase receipt from Apple in order to unlock paid features and confirm that a subscription is active. That validation identifies a purchase, not a person. Apple’s handling of your purchase information is covered by Apple’s privacy policy and the Apple Media Services Terms and Conditions.
+We do not use your financial information to build an advertising profile, to train general-purpose AI models, or to sell to anyone.
 
-Refunds and subscription management are handled by Apple. See [Section 6 of the Terms](https://savefirst.app/terms#plans) for how that works.
+## 7. Where your information lives
 
-## 7. The savefirst.app website
+### On our servers
 
-The website is separate from the app and does involve a small amount of ordinary web data handling.
-
-### The waitlist form
-
-The “Join waitlist” buttons open a **Google Form** hosted by Google. If you choose to submit it, the information you enter there — your email address, and anything else the form asks — is collected through Google’s service and stored in our Google account. We use it for one purpose: to tell you when SaveFirst is available, and occasionally to share news about the launch.
-
-- Our lawful basis, where the UK GDPR or EU GDPR applies, is your consent, given when you submit the form.
-- Every email we send includes a way to unsubscribe, and you can ask us to delete your address at any time by emailing us.
-- We do not sell the list, rent it, or share it with advertisers.
-- Google acts as our processor for the form. Google’s own privacy policy applies to their handling of it.
-
-### Hosting and server logs
-
-Our hosting provider records standard server logs when a page is requested — IP address, browser and device type, the page requested, referring page, and a timestamp. These logs exist to keep the site running, diagnose faults, and defend against abuse. They are kept for a short period and then deleted or aggregated, and we do not use them to build a profile of you.
-
-### Cookies and tracking
-
-The site does **not** use advertising cookies, analytics cookies, tracking pixels, social media trackers, or fingerprinting. Fonts are served from our own domain rather than being requested from a third party as you browse. If we ever add privacy-respecting analytics, we will update this page before doing so and say exactly what it measures.
-
-## 8. When you email support
-
-If you write to us, we receive your email address, your message, and anything you attach — and we keep the thread so that we can answer you and refer back to it if you write again.
-
-> **Please do not send us account numbers, card numbers, login credentials, or bank statements.** We never need them, we do not want them in our inbox, and no genuine message from us will ever ask for them. A screenshot with amounts blurred out is almost always enough.
-
-## 9. Who we share information with
-
-**We do not sell personal information, and we do not share it for advertising.** The only third parties involved are the service providers that make the website and the App Store work:
-
-| Provider | What it handles |
-| --- | --- |
-| Apple | App distribution, purchases and subscriptions, on-device speech recognition, and any iCloud backup you enable. |
-| Google | The waitlist form, and the email account we use to reply to you. |
-| Our website host | Serving savefirst.app and the standard server logs described in Section 7. |
-
-We may also disclose information if we are legally required to, or to protect our rights or someone’s safety. In practice, our ability to comply with such a request is limited to what we actually hold — which does not include anything from inside your app.
-
-If the business is ever sold or merged, information we hold may transfer as part of that transaction. We would tell you before it happened and before any change to how it is handled.
-
-## 10. How long information is kept
-
-- **App data:** kept on your device for as long as you keep it. Deleting a record deletes it; deleting the app removes it all.
-- **Waitlist email addresses:** kept until launch and for a reasonable period afterwards, or until you unsubscribe or ask us to delete it, whichever is sooner.
-- **Support emails:** kept for up to 24 months so we have context if you write again, then deleted.
-- **Server logs:** kept for a short period for security and reliability, then deleted or aggregated.
-
-## 11. Children
-
-SaveFirst is not directed to children under 13, and we do not knowingly collect personal information from anyone under 13. The app has no sign-up, no messaging, no social features, and no advertising.
-
-If you are a parent or guardian and believe a child under 13 has sent us personal information — for example, by submitting the waitlist form — email us and we will delete it.
-
-## 12. Your rights and controls
-
-Most privacy controls are in your hands directly, which is the point of building the app this way.
-
-- **Access and portability:** export everything as a CSV file from within the app, on any tier, at any time.
-- **Correction:** edit or delete any entry in the app yourself.
-- **Deletion:** delete the app, and its data is removed from your device. If you use iCloud Backup, remove the backup in your Apple Account settings as well.
-- **Waitlist:** unsubscribe from any email we send, or write to us and we will delete your address.
-- **Support history:** ask us to delete a support thread and we will, unless we need to keep it to resolve an open issue or to meet a legal obligation.
-
-For anything you need us to do, email [support@teaksoftware.studio](mailto:support@teaksoftware.studio). We aim to respond within 30 days. We may need to ask a question to verify that a request about an email address really comes from the person who owns it. We will never charge you for making a request or treat you differently for exercising a right.
-
-## 13. US state privacy rights
-
-If you live in California, Texas, Colorado, Connecticut, Virginia, or another US state with a comprehensive privacy law, you have rights to know what personal information is collected about you, to access and delete it, to correct it, to obtain a portable copy, and not to be discriminated against for exercising those rights.
-
-**We do not sell personal information, and we do not share it for cross-context behavioural advertising.** We do not use it for profiling that produces legal or similarly significant effects. We do not collect sensitive personal information as those laws define it.
-
-The only personal information we hold is described in Sections 7 and 8: a waitlist email address if you gave us one, support correspondence if you wrote to us, and short-lived website server logs. To exercise a right, or to appeal a decision we have made about a request, email us at the address in Section 19. If we deny an appeal, you may contact your state attorney general.
-
-## 14. UK and EEA rights
-
-If the UK GDPR or EU GDPR applies to you, you have the right to access, rectify, erase, restrict, or object to our processing of your personal data, and the right to data portability. Where we rely on consent — the waitlist — you may withdraw it at any time, without affecting processing carried out before you did.
-
-Our lawful bases are: **consent** for waitlist emails; **legitimate interests** for responding to your support messages and for keeping the website secure and available; and **legal obligation** where a law requires us to retain or disclose something.
-
-You have the right to lodge a complaint with your local supervisory authority. In the UK, that is the Information Commissioner’s Office. We would appreciate the chance to put it right first.
-
-## 15. International transfers
-
-Your app data does not travel — it stays on your device. The limited information described in Sections 7 and 8 is handled by service providers who may store it in the United States and other countries. Where personal data is transferred out of the UK or EEA, we rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses and the UK Addendum, as implemented by those providers.
-
-## 16. Security statement
-
-The strongest security property of SaveFirst is structural: **we do not hold your financial data, so there is no central database of it to breach.** An attacker who compromised our systems would find no user transactions, no balances, and no bank credentials, because we never had them.
+Your account and financial records are stored in a **PostgreSQL database** running on infrastructure we operate with **OVHcloud**. A **Redis** instance holds short-lived operational data such as rate-limit counters and queued background work. This is the primary copy of your data: **SaveFirst needs an internet connection** to show or change your plan once you have an account.
 
 ### On your device
 
-- App data is stored in the app’s private container, which iOS isolates from other apps by design.
-- It is protected by iOS Data Protection, which encrypts files at rest using keys tied to your device passcode and the device’s hardware security.
-- The app does not transmit your plan or transactions to any server, so there is no data in transit to intercept.
-- Speech for voice entry is processed on the device.
+The app keeps only a small amount of information locally:
+
+- **Sign-in tokens**, held in the iOS Keychain (encrypted system storage), so you stay signed in;
+- **App preferences** such as theme and notification choices;
+- **Scheduled reminders**, which are local notifications created on your device — nothing is pushed from us;
+- **An onboarding draft**, if you start setting up before creating an account. It stays on the device until you finish, and is cleared then.
+
+The app does **not** keep a local database of your transactions, so it does not work offline once you have an account.
+
+## 8. Service providers
+
+These are the companies that process data on our behalf so the service can run. Each is bound to use it only to provide their service to us. There are no others, and we do not sell to or share with anyone else.
+
+| Provider | What it handles |
+| --- | --- |
+| Google (Firebase) | Authentication for Apple, Google and email sign-in; analytics; crash reporting. |
+| OVHcloud | The servers and database that hold your account and financial records. |
+| Cloudflare | Sits in front of our API, carrying traffic between the app and our servers and filtering abuse. |
+| Apple | App distribution and updates, Sign in with Apple, and the speech recognition described in Section 5. |
+| Google (Forms) | The website waitlist form, and the mailbox we answer support from. |
+
+We may also disclose information where we are legally required to, or to protect our rights or someone’s safety. If the business is ever sold or merged, information we hold may transfer as part of that transaction, and we would tell you before anything about its handling changed.
+
+## 9. How long we keep things
+
+| What | How long |
+| --- | --- |
+| Account and financial records | While your account exists. Deleted when you delete your account. |
+| Voice transcripts | Erased as soon as you confirm or cancel the command, and automatically within about fifteen minutes if you do neither. |
+| Monthly insight cards | Regenerated regularly; expired cards are deleted after 7 days. |
+| Automatic notes the app attaches to a transaction, after that transaction is deleted | Deleted 30 days after the transaction is deleted. |
+| AI request records (timing and cost only, never content) | 90 days. |
+| Support email | Up to 24 months, then deleted. |
+| Server logs | A short operational period, then deleted or aggregated. |
+| Analytics and crash data | Held by Firebase under Google’s retention settings for those products. |
+| Waitlist email address | Until launch and a reasonable period after, or until you ask us to remove it. |
+
+## 10. Deleting your account
+
+You can delete your account from inside the app, in **Settings → Delete account**. You do not have to email us and you do not have to ask.
+
+Deletion is a hard delete, not a hidden flag. It removes your user record and every row attached to it: transactions and their splits and tags, accounts and balances, bills and their occurrences and payment allocations, goals and contributions, spending caps, investments, merchants, tags, your finance profile, saved Pre-Spend decisions, cached insights and snapshots, voice command records, and the metadata records of any AI requests. The app also deletes your Firebase sign-in identity.
+
+It is immediate and it is not reversible. **Ask us for a copy of anything you want to keep before you delete**— see Section 11. Copies may persist for a short time in encrypted infrastructure backups before they age out, and analytics and crash data already held by Firebase are governed by Google’s retention for those products.
+
+## 11. Your rights and controls
+
+- **Access and correction:** everything about your money is visible and editable in the app.
+- **Portability:** email us and we will send you a copy of your data in a machine-readable format. A one-tap export inside the app is on the way; until it ships, ask us and we will do it for you.
+- **Deletion:** Settings → Delete account, as described above.
+- **Notifications:** turn reminders off in the app or in iOS Settings.
+- **Voice:** decline or revoke microphone and speech permission in iOS Settings; the rest of the app is unaffected.
+- **Sign out** at any time from Settings.
+- **Waitlist:** unsubscribe from any email we send, or ask us to delete your address.
+
+For anything you need us to do, email [support@teaksoftware.studio](mailto:support@teaksoftware.studio) from the address on your account. We aim to respond within 30 days. We will never charge you for a request or treat you differently for making one.
+
+## 12. Children
+
+SaveFirst is not directed to children under 13, and we do not knowingly collect personal information from anyone under 13. The app has no messaging, no social features, and no advertising.
+
+If you are a parent or guardian and believe a child under 13 has created an account, email us and we will delete it.
+
+## 13. US state privacy rights
+
+If you live in California, Texas, Colorado, Connecticut, Virginia, or another US state with a comprehensive privacy law, you have the right to know what personal information is collected about you, to access and delete it, to correct it, to obtain a portable copy, and not to be treated differently for exercising those rights.
+
+**We do not sell personal information, and we do not share it for cross-context behavioural advertising.** We do not use it for profiling that produces legal or similarly significant effects about you.
+
+The categories we collect are set out in Sections 2 and 3: identifiers, your email address, the financial information you enter, device and usage data, and diagnostic data. The account deletion in Section 10 satisfies a deletion request in full; you can also write to us at the address in Section 20, including to appeal a decision. If we deny an appeal, you may contact your state attorney general.
+
+## 14. UK and EEA rights
+
+If the UK GDPR or EU GDPR applies to you, you have the right to access, rectify, erase, restrict, or object to our processing, and the right to data portability.
+
+Our lawful bases are:
+
+- **Performance of a contract** — running your account and storing the plan you asked us to keep;
+- **Legitimate interests** — keeping the service secure and available, preventing abuse, fixing crashes, and answering your messages;
+- **Consent** — analytics, voice input, notifications, and waitlist email, each of which you can decline or withdraw without losing the rest of the app;
+- **Legal obligation** — where a law requires us to retain or disclose something.
+
+You may lodge a complaint with your local supervisory authority; in the UK that is the Information Commissioner’s Office. We would appreciate the chance to put it right first.
+
+## 15. International transfers
+
+SaveFirst is operated from the United States by a Texas company, on infrastructure provided by OVHcloud, with Google, Cloudflare and Apple processing parts of the service. Your information may therefore be stored and processed in countries other than the one you live in, including the United States and the European Union.
+
+Where personal data is transferred out of the UK or EEA, we rely on appropriate safeguards, including the European Commission’s Standard Contractual Clauses and the UK Addendum, as implemented by those providers.
+
+## 16. The savefirst.app website
+
+The website is separate from the app and handles very little.
+
+### The waitlist form
+
+The “Join waitlist” buttons open a **Google Form** hosted by Google. If you submit it, the email address you enter is collected through Google’s service and stored in our Google account, and we use it to tell you when SaveFirst is available. Consent is the lawful basis where the UK or EU GDPR applies. Every email includes a way to unsubscribe, and we do not sell or rent the list.
+
+### Hosting and cookies
+
+Our website host records standard server logs — IP address, browser and device type, the page requested, and a timestamp — kept briefly for security and reliability. The site uses **no** advertising cookies, analytics cookies, tracking pixels, or social media trackers, and fonts are served from our own domain rather than fetched from a third party as you browse.
+
+## 17. Security statement
+
+We hold financial information, so we would rather describe our actual controls than make broad assurances.
+
+### In transit
+
+- All traffic between the app and our API is encrypted with HTTPS/TLS. The website redirects HTTP to HTTPS.
+- Our API sits behind Cloudflare and is reachable only through it, not directly.
+
+### Accounts and access
+
+- Sign-in runs through Firebase Authentication, so Apple and Google credentials are never seen by us. For email sign-up, passwords are stored only as a one-way **Argon2** hash.
+- Sessions use short-lived access tokens with separate refresh tokens; on your device both are held in the iOS Keychain.
+- Every API request is scoped to the signed-in account, and every endpoint that touches your data requires authentication.
+- Requests are rate limited per address and per account, and the limiter stores only keyed one-way digests rather than raw addresses. Sign-in limits fail closed — if the limiter is unavailable, authentication is refused rather than left open.
+
+### On our servers
+
+- The database runs with least-privilege roles: the application account cannot perform schema changes, and neither runs as a superuser.
+- Database connections outside the local host use TLS, and credentials are held in secrets management rather than in the codebase.
+- Logs are structured around request identifiers and are not designed to carry the contents of your financial records.
+- Sensitive short-lived material is erased on a schedule rather than left to accumulate — voice transcripts within about fifteen minutes, and the other windows in Section 9.
+- Records of AI requests store timing, token counts and cost. They never store the text of a request or a response.
+- We hold no payment card data, because the app currently sells nothing.
 
 ### What you control, and should
 
-- Set a device passcode and enable Face ID or Touch ID. Without a passcode, iOS encryption at rest offers materially less protection.
-- Keep iOS and the app updated, so that security fixes reach you.
-- Keep your Apple Account secured with two-factor authentication, particularly if you use iCloud Backup.
-- Treat an exported CSV file as sensitive — it is a plain, unencrypted copy of your records, and once you move it off the device its protection is whatever you give it.
-
-### On our side
-
-- The website is served over HTTPS with TLS, and HTTP requests are redirected to HTTPS.
-- Accounts we use to run the business — hosting, the App Store, email — are protected with two-factor authentication and access limited to those who need it.
-- We do not use third-party SDKs in the app, which keeps the supply-chain surface small.
-- We keep no payment card data, so there is none to lose.
+- Use a device passcode with Face ID or Touch ID. Anyone who can unlock your phone can open the app.
+- Secure the Apple or Google account you sign in with, ideally with two-factor authentication — whoever controls it can reach your SaveFirst account.
+- Keep iOS and the app updated so security fixes reach you.
+- If you ask us for a copy of your data, treat the file you receive as sensitive: it is a plain, unencrypted copy of your records, and once it is on your computer its protection is whatever you give it.
 
 ### Honest limits
 
-No system is perfectly secure. A device that is jailbroken, running compromised software, unlocked and in someone else’s hands, or backed up to an account someone else can access is outside what the app can protect against. We describe our practices accurately rather than promising invulnerability. If a security incident ever affects personal information we hold, we will notify affected people and any regulator required, without undue delay.
+No system is perfectly secure, and we will not claim otherwise. We are a small team, we have not completed an independent security audit or a SOC 2 examination, and we do not currently offer two-factor authentication on SaveFirst itself beyond what your sign-in provider enforces. A jailbroken or compromised device is outside what any app can protect against. If a security incident affects personal information we hold, we will notify affected users and any regulator required, without undue delay.
 
-## 17. Reporting a vulnerability
+## 18. Reporting a vulnerability
 
-If you find a security issue in the app or on the site, we want to hear about it. Email [support@teaksoftware.studio](mailto:support@teaksoftware.studio) with the subject line **“Security”** and enough detail for us to reproduce it. We will acknowledge within five business days and keep you updated.
+If you find a security issue, we want to hear about it. Email [support@teaksoftware.studio](mailto:support@teaksoftware.studio) with the subject line **“Security”** and enough detail to reproduce it. We will acknowledge within five business days and keep you updated.
 
-Please give us a reasonable opportunity to fix an issue before disclosing it publicly, and avoid accessing or modifying anyone else’s data, degrading the service, or using automated scanning that disrupts it. We will not pursue legal action against researchers who report in good faith and follow those principles.
+Please give us a reasonable opportunity to fix an issue before disclosing it publicly, and avoid accessing or modifying anyone else’s data, degrading the service, or running automated scanning that disrupts it. We will not pursue legal action against researchers who report in good faith and follow those principles.
 
-## 18. Changes to this policy
+## 19. Changes to this policy
 
-We will update this page when the product or the law changes, and revise the “Last updated” date at the top. If a change is material — particularly anything that would mean information leaving your device — we will give clear notice in the app or on the site **before** it takes effect, and, where the law requires it, ask for your consent rather than assuming it.
+We will update this page when the product or the law changes, and revise the “Last updated” date at the top. If a change is material — in particular, enabling the third-party AI processing described in Section 5, or introducing any new category of collection — we will give clear notice in the app before it takes effect, and ask for your consent where the law requires it.
 
-We will not quietly begin collecting something this policy says we do not collect. If that ever changes, you will be told.
+We will not quietly begin collecting something this policy says we do not collect.
 
-## 19. How to reach us
+## 20. How to reach us
 
 **TEAK SOFTWARE STUDIO LLC**
 A limited liability company registered in the State of Texas, United States
