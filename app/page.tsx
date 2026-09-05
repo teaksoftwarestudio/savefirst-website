@@ -335,10 +335,9 @@ export default function Home() {
               <div className="footer-col">
                 <h6>Company</h6>
                 <ul>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Changelog</a></li>
-                  <li><a href="#">Press kit</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="#faq">About</a></li>
+                  <li><a href="mailto:support@teaksoftware.studio">Contact</a></li>
+                  <li><a href="mailto:support@teaksoftware.studio?subject=Security">Report a security issue</a></li>
                 </ul>
               </div>
             </Reveal>
@@ -346,20 +345,20 @@ export default function Home() {
               <div className="footer-col">
                 <h6>Legal</h6>
                 <ul>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms</a></li>
-                  <li><a href="#">Security</a></li>
-                  <li><a href="#">Cookies</a></li>
+                  <li><a href="/privacy">Privacy Policy</a></li>
+                  <li><a href="/terms">Terms of Service</a></li>
+                  <li><a href="/privacy#security">Security</a></li>
+                  <li><a href="/privacy#website">Cookies</a></li>
                 </ul>
               </div>
             </Reveal>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 SaveFirst. Made with care for your future self.</span>
+            <span>© 2026 SaveFirst by Teak Software Studio LLC. Made with care for your future self.</span>
             <span className="legal">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-              <a href="#">Status</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+              <a href="/privacy#security">Security</a>
             </span>
           </div>
         </div>
