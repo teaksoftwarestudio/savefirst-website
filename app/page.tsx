@@ -307,8 +307,8 @@ export default function Home() {
       <footer className="footer">
         <div className="wrap">
           <div className="footer-grid">
-            <Reveal direction="up" delay={0}>
-              <div className="footer-col footer-about">
+            <Reveal className="footer-col footer-about" direction="up" delay={0}>
+              <div>
                 <a href="#" className="logo">
                   <img
                     src="/assets/savefirst-wordmark-color.svg"
@@ -320,8 +320,8 @@ export default function Home() {
                 <p>A calmer way to think about money. Save what matters, spend what&apos;s left.</p>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.08}>
-              <div className="footer-col">
+            <Reveal className="footer-col" direction="up" delay={0.08}>
+              <div>
                 <h6>Product</h6>
                 <ul>
                   <li><a href="#features">Features</a></li>
@@ -331,8 +331,8 @@ export default function Home() {
                 </ul>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.16}>
-              <div className="footer-col">
+            <Reveal className="footer-col" direction="up" delay={0.16}>
+              <div>
                 <h6>Company</h6>
                 <ul>
                   <li><a href="#faq">About</a></li>
@@ -341,8 +341,8 @@ export default function Home() {
                 </ul>
               </div>
             </Reveal>
-            <Reveal direction="up" delay={0.24}>
-              <div className="footer-col">
+            <Reveal className="footer-col" direction="up" delay={0.24}>
+              <div>
                 <h6>Legal</h6>
                 <ul>
                   <li><a href="/privacy">Privacy Policy</a></li>
