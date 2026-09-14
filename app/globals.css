@@ -95,8 +95,12 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-/* Prevent horizontal overflow without breaking sticky positioning */
-body { overflow-x: clip; }
+/* Prevent horizontal overflow without breaking sticky positioning.
+   <html> must be clipped too: iOS Safari sizes its layout viewport from the
+   initial containing block, so clipping only body/main still lets a wide
+   descendant shift the whole page sideways. */
+html { overflow-x: clip; max-width: 100%; }
+body { overflow-x: clip; max-width: 100%; }
 #__next, main, .page-wrapper { overflow-x: clip; }
 
 img { display: block; max-width: 100%; }
@@ -317,11 +321,13 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
   will-change: transform;
 }
 .aurora-blob-1 {
-  width: 620px; height: 620px; top: -180px; left: -120px;
+  width: min(620px, 150vw); height: min(620px, 150vw);
+  top: -180px; left: min(-120px, -18vw);
   background: radial-gradient(circle, rgba(20,184,127,0.55), transparent 62%);
 }
 .aurora-blob-2 {
-  width: 560px; height: 560px; bottom: -220px; right: -140px;
+  width: min(560px, 140vw); height: min(560px, 140vw);
+  bottom: -220px; right: min(-140px, -20vw);
   background: radial-gradient(circle, rgba(13,200,150,0.40), transparent 62%);
 }
 .aurora-spot { position: absolute; inset: 0; mix-blend-mode: screen; }
