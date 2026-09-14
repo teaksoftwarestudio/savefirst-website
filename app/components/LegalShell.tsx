@@ -1,5 +1,3 @@
-import { WAITLIST_URL } from "../constants";
-
 type Section = { id: string; label: string };
 
 export default function LegalShell({
@@ -21,7 +19,7 @@ export default function LegalShell({
 }) {
   return (
     <>
-      {/* Header — simple, static, links back to the marketing page */}
+      {/* Header — just the wordmark, linking back to the marketing page */}
       <header className="nav legal-nav">
         <div className="wrap nav-inner">
           <a href="/" className="logo" aria-label="SaveFirst">
@@ -32,19 +30,6 @@ export default function LegalShell({
               style={{ display: "block", height: 36, width: "auto" }}
             />
           </a>
-          <nav className="nav-links legal-nav-links">
-            <a href="/#how">How it works</a>
-            <a href="/#features">Features</a>
-            <a href="/#faq">FAQ</a>
-            <a
-              href={WAITLIST_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary nav-cta"
-            >
-              Join waitlist
-            </a>
-          </nav>
         </div>
       </header>
 
