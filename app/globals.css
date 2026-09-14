@@ -1091,20 +1091,23 @@ html { scroll-behavior: smooth; }
 
   /* Phone stack — centre phone only, fully visible */
   .phone-stack {
-    width: 300px;
-    height: 600px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     margin: 0 auto;
     position: relative;
     overflow: visible;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
   }
   .phone-stack .phone.p1,
   .phone-stack .phone.p3 { display: none !important; }
   .phone-stack .phone.p2 {
-    left: 50% !important;
-    top: 0 !important;
-    margin-left: 0;
-    transform: translateX(-50%);
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 auto;
   }
   .float-chip { display: none; }
 
@@ -1187,17 +1190,12 @@ html { scroll-behavior: smooth; }
   .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
   .wrap { padding: 0 16px; }
 
-  /* The phone frame is a fixed 280px; scale it down rather than let it
-     overflow the 300px stack on the narrowest devices. */
-  .phone-stack {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    aspect-ratio: 300 / 600;
-  }
+  /* The phone frame is a fixed 280px and Framer scales it to ~297px; cap the
+     frame itself so the scaled result still fits the narrowest viewports. */
   .phone-stack .phone.p2 {
-    transform: translateX(-50%) scale(0.88);
-    transform-origin: top center;
+    width: min(280px, calc(100vw - 72px));
+    height: auto;
+    aspect-ratio: 280 / 580;
   }
 }
 
