@@ -20,7 +20,7 @@ const SECTIONS = [
   { id: "voice", label: "Voice input" },
   { id: "notifications", label: "Reminders and notifications" },
   { id: "acceptable-use", label: "Acceptable use" },
-  { id: "paid", label: "Paid features in the future" },
+  { id: "subscriptions", label: "Subscriptions and purchases" },
   { id: "ownership", label: "Ownership and intellectual property" },
   { id: "feedback", label: "Feedback you send us" },
   { id: "prerelease", label: "Pre-release and beta versions" },
@@ -41,7 +41,7 @@ export default function TermsPage() {
       title="Terms of Service"
       intro="These Terms are the agreement between you and Teak Software Studio LLC for the SaveFirst app and the savefirst.app website. They are written to be read, not skimmed past."
       effective="September 5, 2026"
-      updated="September 5, 2026"
+      updated="October 3, 2026"
       sections={SECTIONS}
     >
       <div className="legal-summary">
@@ -51,6 +51,7 @@ export default function TermsPage() {
           <li>You need an account and an internet connection. Your records are stored on our servers.</li>
           <li>You need to be at least 13 to use it.</li>
           <li>Your data stays yours, you can ask us for a copy of it, and you can delete your account from Settings at any time.</li>
+          <li>SaveFirst is free to download. Any paid subscription is billed by Apple and renews until you cancel it in your Apple Account settings.</li>
           <li>Decisions about your money are yours. We are not liable for them.</li>
         </ul>
         <p>
@@ -305,24 +306,82 @@ export default function TermsPage() {
         </p>
       </section>
 
-      <section id="paid">
-        <h2><span className="legal-num">Section 12</span>Paid features in the future</h2>
+      <section id="subscriptions">
+        <h2><span className="legal-num">Section 12</span>Subscriptions and purchases</h2>
         <p>
-          <strong>The current version of SaveFirst is free, and the App sells nothing.</strong> There
-          is no subscription and no in-app purchase in this release, and we do not collect or
-          process any payment details.
+          SaveFirst is free to download, and you can use it without paying. Some features may be
+          available only with a paid subscription (a <strong>&ldquo;Subscription&rdquo;</strong>).
+          Nothing you use for free will start charging you. A Subscription only begins when you
+          choose to buy one.
+        </p>
+        <h3>Purchased through Apple</h3>
+        <p>
+          Subscriptions are sold as auto-renewable subscriptions through the Apple App Store and are
+          charged to the payment method on your Apple Account. Apple processes the payment. We never
+          receive your card number or billing details.
+        </p>
+        <h3>What you see before you buy</h3>
+        <p>
+          The purchase screen in the App shows the price, the length of the billing period, what the
+          Subscription includes, and the length and terms of any free trial or introductory offer,
+          before you confirm anything. Prices are set in the App Store and may vary by country.
+        </p>
+        <h3>Automatic renewal</h3>
+        <ul>
+          <li>
+            <strong>A Subscription renews automatically</strong> at the end of each billing period,
+            for the same period and at the then-current price, unless you turn off auto-renew at
+            least 24 hours before the current period ends.
+          </li>
+          <li>
+            Your Apple Account is charged for the renewal within the 24 hours before the current
+            period ends.
+          </li>
+          <li>
+            <strong>Free trials.</strong> If a Subscription comes with a free trial, it converts to a
+            paid Subscription when the trial ends unless you cancel at least 24 hours before the end
+            of the trial. Any unused part of a free trial is forfeited when you buy a Subscription.
+          </li>
+        </ul>
+        <h3>Managing and cancelling</h3>
+        <p>
+          You can manage or cancel a Subscription at any time in your iPhone&rsquo;s{" "}
+          <strong>Settings → [your name] → Subscriptions</strong>, or in your Apple Account settings
+          in the App Store. Cancelling stops the next renewal. You keep access until the end of the
+          period you have already paid for.
         </p>
         <p>
-          We expect to introduce a paid tier. If we do, it will be sold through the app store you
-          installed the App from, and the price, the billing period, the renewal terms and any trial
-          will be shown to you on the purchase screen before you buy anything. Payment would be
-          handled by the app store, not by us, and refunds would be governed by that store&rsquo;s
-          policies. <strong>Nothing you have today will start charging you</strong> — a paid tier
-          would require you to choose it.
+          <strong>
+            Deleting the App, or deleting your SaveFirst account, does not cancel a Subscription.
+          </strong>{" "}
+          Apple bills it, so you need to cancel it with Apple.
         </p>
+        <h3>Restoring a purchase</h3>
         <p>
-          We will update these Terms with full purchase and renewal terms before any paid feature
-          goes on sale.
+          If you reinstall the App or move to a new device signed in to the same Apple Account, use{" "}
+          <strong>Restore Purchases</strong> in the App to reconnect an active Subscription.
+        </p>
+        <h3>Refunds</h3>
+        <p>
+          Because Apple handles payment, Apple handles refunds, under its own policies. You can ask
+          for one at{" "}
+          <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">
+            reportaproblem.apple.com
+          </a>
+          . We cannot issue refunds for App Store purchases ourselves. Nothing in this section
+          limits any right to a refund you have under the law where you live.
+        </p>
+        <h3>Price changes</h3>
+        <p>
+          If the price of a Subscription changes, Apple will tell you before the new price applies.
+          Where the law or Apple&rsquo;s rules require it, you will be asked to agree to the new price
+          first, and if you do not, the Subscription will end at the close of the current period.
+        </p>
+        <h3>Changes to what a Subscription includes</h3>
+        <p>
+          The product will develop, and what is included in a Subscription may change. If we
+          materially reduce what a Subscription includes, we will tell you in advance so that you can
+          cancel before your next renewal.
         </p>
       </section>
 
@@ -442,7 +501,9 @@ export default function TermsPage() {
           records attached to it from our servers permanently, as described in{" "}
           <a href="/privacy#deletion">Section 10 of the Privacy Policy</a>.{" "}
           <strong>It cannot be undone, so ask us for a copy of your data first.</strong> Deleting the App from your device
-          without deleting your account leaves your account in place.
+          without deleting your account leaves your account in place. Neither one cancels a paid
+          Subscription. Cancel it with Apple, as described in{" "}
+          <a href="#subscriptions">Section 12</a>.
         </p>
         <p>
           We may suspend or end your access if you materially breach these Terms, if your use

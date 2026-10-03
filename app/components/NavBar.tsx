@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { WAITLIST_URL } from "../constants";
+import { APP_STORE_URL, WAITLIST_URL } from "../constants";
+
+/** Waitlist before launch, App Store after. */
+const CTA = APP_STORE_URL
+  ? { href: APP_STORE_URL, label: "Download" }
+  : { href: WAITLIST_URL, label: "Join waitlist" };
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,9 +46,9 @@ export default function NavBar() {
           <nav className="nav-links nav-desktop">
             <a href="#how">How it works</a>
             <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
-            <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">Join waitlist</a>
+            <a href="/support">Support</a>
+            <a href={CTA.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">{CTA.label}</a>
           </nav>
 
           {/* Mobile hamburger */}
@@ -62,9 +67,9 @@ export default function NavBar() {
         <nav className="nav-drawer-links">
           <a href="#how" onClick={close}>How it works</a>
           <a href="#features" onClick={close}>Features</a>
-          <a href="#pricing" onClick={close}>Pricing</a>
           <a href="#faq" onClick={close}>FAQ</a>
-          <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary" onClick={close} style={{ width: "100%", justifyContent: "center" }}>Join waitlist</a>
+          <a href="/support" onClick={close}>Support</a>
+          <a href={CTA.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary" onClick={close} style={{ width: "100%", justifyContent: "center" }}>{CTA.label}</a>
         </nav>
       </div>
 

@@ -154,7 +154,6 @@ p { color: var(--ink-2); margin: 0; text-wrap: pretty; }
 
 /* Large numerics — display font + tabular figures (no shift on count-up) */
 .stat-num,
-.price .amt .n,
 .balance-card .bc-amt,
 .amount-card .ac-amt,
 .priority-card .pc-big,
@@ -908,30 +907,6 @@ section.tight { padding: 80px 0; }
   .fx-bar-key { font-size: 11px; }
 }
 
-/* Pricing */
-.pricing { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
-.price { border: 1px solid var(--line); border-radius: 24px; padding: 36px 32px; background: var(--paper); display: flex; flex-direction: column; }
-.price.pro { background: linear-gradient(160deg, #0c2a1f, #103d2c); color: white; border: 0; position: relative; overflow: hidden; }
-.price.pro::after { content: ""; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(20,184,127,0.25), transparent 60%); }
-.price h3 { font-size: 22px; margin-bottom: 6px; }
-.price.pro h3 { color: white; }
-.price .blurb { font-size: 14.5px; color: var(--ink-3); margin-bottom: 28px; }
-.price.pro .blurb { color: rgba(255,255,255,0.7); }
-.price .amt { display: flex; align-items: baseline; gap: 6px; margin-bottom: 28px; }
-.price .amt .n { font-size: 52px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-.price .amt .per { font-size: 15px; color: var(--ink-3); font-weight: 500; }
-.price.pro .amt .per { color: rgba(255,255,255,0.65); }
-.price ul { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.price ul li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
-.price.pro ul li { color: rgba(255,255,255,0.88); }
-.price ul li::before { content: ""; flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; border-radius: 50%; background: var(--accent-soft); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2310a65a' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>"); background-position: center; background-repeat: no-repeat; }
-.price.pro ul li::before { background-color: rgba(20,184,127,0.2); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2314b87f' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>"); }
-.price .btn-pricing { display: grid; place-items: center; width: 100%; height: 50px; border-radius: var(--r-pill); font-weight: 600; font-size: 15px; border: 0; cursor: pointer; font-family: inherit; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-.price .btn-pricing:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(18,23,42,0.32); }
-.price:not(.pro) .btn-pricing { background: var(--ink); color: white; }
-.price.pro .btn-pricing { background: white; color: var(--ink); }
-.price-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--accent); color: white; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
 
 /* FAQ */
 .faq { background: var(--canvas); }
@@ -1128,8 +1103,6 @@ html { scroll-behavior: smooth; }
   /* How */
   .how-steps { grid-template-columns: 1fr; gap: 20px; }
 
-  /* Pricing */
-  .price-grid { grid-template-columns: 1fr; max-width: 480px; }
 
   /* Footer */
   .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
@@ -1168,10 +1141,6 @@ html { scroll-behavior: smooth; }
   .how-step h3 { font-size: 18px; }
   .how-step .viz { height: 110px; }
 
-  /* Pricing */
-  .price-grid { max-width: 100%; }
-  .price { padding: 26px 20px; }
-  .price .amt .n { font-size: 40px; }
 
   /* FAQ */
   .faq-q { font-size: 15px; padding: 18px 4px; }

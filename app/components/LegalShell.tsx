@@ -12,8 +12,9 @@ export default function LegalShell({
   eyebrow: string;
   title: string;
   intro: string;
-  effective: string;
-  updated: string;
+  /** Dates are shown for legal documents only; the Support page omits them. */
+  effective?: string;
+  updated?: string;
   sections: Section[];
   children: React.ReactNode;
 }) {
@@ -38,15 +39,17 @@ export default function LegalShell({
           <span className="eyebrow">{eyebrow}</span>
           <h1>{title}</h1>
           <p className="legal-intro">{intro}</p>
-          <div className="legal-dates">
-            <span>
-              <strong>Effective</strong> {effective}
-            </span>
-            <span aria-hidden="true" className="legal-dot" />
-            <span>
-              <strong>Last updated</strong> {updated}
-            </span>
-          </div>
+          {effective && updated && (
+            <div className="legal-dates">
+              <span>
+                <strong>Effective</strong> {effective}
+              </span>
+              <span aria-hidden="true" className="legal-dot" />
+              <span>
+                <strong>Last updated</strong> {updated}
+              </span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -72,7 +75,7 @@ export default function LegalShell({
             <span className="legal">
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
-              <a href="/privacy#security">Security</a>
+              <a href="/support">Support</a>
               <a href="/">Home</a>
             </span>
           </div>

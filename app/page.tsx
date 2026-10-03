@@ -8,29 +8,16 @@ import PhoneGoals from "./components/PhoneGoals";
 import FAQ from "./components/FAQ";
 import Reveal from "./components/Reveal";
 import { Viz1, Viz2, Viz3 } from "./components/HowVizzes";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import { useCountUp } from "./components/useCountUp";
 import FeatureShowcase from "./components/FeatureShowcase";
 import AuroraBackground from "./components/AuroraBackground";
 import WordReveal from "./components/WordReveal";
 import MagneticButton from "./components/MagneticButton";
 import StatsBand from "./components/StatsBand";
 import AnimatedCounter from "./components/AnimatedCounter";
-import { WAITLIST_URL } from "./constants";
+import LaunchCTA from "./components/LaunchCTA";
+import { IS_LIVE, SUPPORT_EMAIL } from "./constants";
 
 const spring = { ease: [0.22, 1, 0.36, 1] as const, duration: 0.7 };
-
-function PriceAmt({ value, decimals = 2 }: { value: number; decimals?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const val = useCountUp(value, 1200, inView, decimals);
-  return (
-    <span className="n" ref={ref}>
-      ${decimals > 0 ? val.toFixed(decimals) : Math.round(val)}
-    </span>
-  );
-}
 
 export default function Home() {
   return (
@@ -65,7 +52,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.54 }}
             >
-              <MagneticButton href={WAITLIST_URL} external className="btn btn-primary">Join waitlist</MagneticButton>
+              <LaunchCTA />
               <MagneticButton href="#how" className="btn btn-light">See how it works</MagneticButton>
             </motion.div>
 
@@ -229,76 +216,19 @@ export default function Home() {
       {/* FEATURES — bento grid + interactive Pre-Spend Check */}
       <FeatureShowcase />
 
-      {/* PRICING */}
-      <section className="pricing" id="pricing">
-        <div className="wrap">
-          <Reveal>
-            <div className="section-head center">
-              <span className="eyebrow">Pricing</span>
-              <h2>Free to start. Affordable to go deeper.</h2>
-              <p>No trials, no dark patterns. Cancel from Settings anytime.</p>
-            </div>
-          </Reveal>
-          <div className="price-grid">
-            <Reveal direction="left" delay={0.05}>
-              <motion.div
-                className="price"
-                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(18,23,42,0.16)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
-              >
-                <h3>Free</h3>
-                <p className="blurb">The SaveFirst essentials, forever.</p>
-                <div className="amt">
-                  <PriceAmt value={0} decimals={0} />
-                  <span className="per">/ month</span>
-                </div>
-                <ul>
-                  <li>Spendable Balance &amp; monthly snapshot</li>
-                  <li>Unlimited transactions</li>
-                  <li>One savings target &amp; one emergency fund</li>
-                  <li>5 Pre-Spend Checks per month</li>
-                  <li>CSV export</li>
-                </ul>
-                <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn-pricing">Join waitlist</a>
-              </motion.div>
-            </Reveal>
-            <Reveal direction="right" delay={0.12}>
-              <motion.div
-                className="price pro"
-                whileHover={{ y: -8, boxShadow: "0 28px 64px -12px rgba(14,159,110,0.4)", transition: { type: "spring", stiffness: 300, damping: 22 } }}
-              >
-                <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", flex: 1 }}>
-                  <span className="price-tag">Most popular</span>
-                  <h3>Pro</h3>
-                  <p className="blurb">For when money has more moving parts.</p>
-                  <div className="amt">
-                    <PriceAmt value={4.99} decimals={2} />
-                    <span className="per">/ month</span>
-                  </div>
-                  <ul>
-                    <li>Everything in Free</li>
-                    <li>Unlimited Pre-Spend Checks &amp; explanations</li>
-                    <li>Unlimited goals &amp; sinking funds</li>
-                    <li>Voice entry &amp; recurring auto-detection</li>
-                    <li>Weekly recap &amp; insight cards</li>
-                    <li>Priority email support</li>
-                  </ul>
-                  <a href={WAITLIST_URL} target="_blank" rel="noopener noreferrer" className="btn-pricing">Join waitlist</a>
-                </div>
-              </motion.div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       <FAQ />
 
       {/* CTA BAND */}
       <Reveal direction="scale">
-        <section className="cta-band tight" id="waitlist">
+        <section className="cta-band tight" id="get">
           <div className="wrap">
             <h2>Spend lighter. Save sooner.</h2>
-            <p>Join the SaveFirst waitlist. We&apos;ll let you know when the iPhone app is ready.</p>
-            <MagneticButton href={WAITLIST_URL} external className="btn btn-light">Join waitlist</MagneticButton>
+            <p>
+              {IS_LIVE
+                ? "SaveFirst is on the App Store for iPhone."
+                : "SaveFirst is coming to iPhone. Join the waitlist and we’ll tell you the day it’s on the App Store."}
+            </p>
+            <LaunchCTA tone="light" />
           </div>
         </section>
       </Reveal>
@@ -324,20 +254,19 @@ export default function Home() {
               <div>
                 <h6>Product</h6>
                 <ul>
-                  <li><a href="#features">Features</a></li>
-                  <li><a href="#pricing">Pricing</a></li>
                   <li><a href="#how">How it works</a></li>
+                  <li><a href="#features">Features</a></li>
                   <li><a href="#faq">FAQ</a></li>
                 </ul>
               </div>
             </Reveal>
             <Reveal className="footer-col" direction="up" delay={0.16}>
               <div>
-                <h6>Company</h6>
+                <h6>Help</h6>
                 <ul>
-                  <li><a href="#faq">About</a></li>
-                  <li><a href="mailto:support@teaksoftware.studio">Contact</a></li>
-                  <li><a href="mailto:support@teaksoftware.studio?subject=Security">Report a security issue</a></li>
+                  <li><a href="/support">Support</a></li>
+                  <li><a href={`mailto:${SUPPORT_EMAIL}`}>Contact</a></li>
+                  <li><a href={`mailto:${SUPPORT_EMAIL}?subject=Security`}>Report a security issue</a></li>
                 </ul>
               </div>
             </Reveal>
@@ -358,7 +287,7 @@ export default function Home() {
             <span className="legal">
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
-              <a href="/privacy#security">Security</a>
+              <a href="/support">Support</a>
             </span>
           </div>
         </div>
