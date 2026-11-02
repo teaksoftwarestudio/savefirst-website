@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s — SaveFirst",
   },
   description:
-    "SaveFirst is a calm money tracker for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
+    "SaveFirst is a money clarity app for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
   applicationName: "SaveFirst",
   alternates: { canonical: "/" },
   openGraph: {
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     siteName: "SaveFirst",
     title: "SaveFirst — Spend what's left after saving.",
     description:
-      "SaveFirst is a calm money tracker for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
+      "SaveFirst is a money clarity app for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
     images: [{ url: "/assets/app-icon.png", width: 512, height: 512, alt: "SaveFirst" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SaveFirst — Spend what's left after saving.",
     description:
-      "SaveFirst is a calm money tracker for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
+      "SaveFirst is a money clarity app for iPhone. See your real spendable balance, run a pre-spend check before you buy, and grow goals without the shame.",
     images: ["/assets/app-icon.png"],
   },
   icons: {

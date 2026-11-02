@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       title="Privacy Policy & Security"
       intro="SaveFirst is an account-based service. The money information you enter is stored on our servers so it is there when you sign in. This page sets out exactly what we hold, who else touches it, how long we keep it, and how it is protected."
       effective="September 5, 2026"
-      updated="September 5, 2026"
+      updated="October 3, 2026"
       sections={SECTIONS}
     >
       <div className="legal-summary">
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>No bank credentials.</strong> There is no bank linking in the app. It never asks for a username, password, or one-time code for any financial institution, and we could not use one if you sent it.</li>
           <li><strong>No imported transactions.</strong> Nothing is pulled from your bank, card, or statements. Every record exists because you created it.</li>
-          <li><strong>No card or payment details.</strong> The current version of the app sells nothing.</li>
+          <li><strong>No card or payment details.</strong> If you buy a subscription in the app, Apple processes the payment. We never receive your card number or billing address.</li>
           <li><strong>No advertising identifiers, and no cross-app or cross-site tracking.</strong> The app does not use the IDFA, does not present an App Tracking Transparency prompt, and contains no advertising SDK.</li>
           <li><strong>No sale of personal information, and no sharing for cross-context behavioural advertising.</strong></li>
           <li><strong>No access to your contacts, photos, location, SMS, or email inbox.</strong> The only device permissions the app requests are the microphone and speech recognition, for voice entry, and notifications if you turn reminders on.</li>
@@ -537,7 +537,7 @@ export default function PrivacyPage() {
           <li>Logs are structured around request identifiers and are not designed to carry the contents of your financial records.</li>
           <li>Sensitive short-lived material is erased on a schedule rather than left to accumulate — voice transcripts within about fifteen minutes, and the other windows in Section 9.</li>
           <li>Records of AI requests store timing, token counts and cost. They never store the text of a request or a response.</li>
-          <li>We hold no payment card data, because the app currently sells nothing.</li>
+          <li>We hold no payment card data. Any purchase in the app is processed by Apple.</li>
         </ul>
 
         <h3>What you control, and should</h3>

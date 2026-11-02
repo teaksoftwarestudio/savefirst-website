@@ -1,6 +1,6 @@
 # SaveFirst — Terms of Service
 
-**Effective:** September 5, 2026 · **Last updated:** September 5, 2026
+**Effective:** September 5, 2026 · **Last updated:** October 3, 2026
 
 These Terms are the agreement between you and Teak Software Studio LLC for the SaveFirst app and the savefirst.app website. They are written to be read, not skimmed past.
 
@@ -14,6 +14,7 @@ _Also published at https://savefirst.app/terms_
 - You need an account and an internet connection. Your records are stored on our servers.
 - You need to be at least 13 to use it.
 - Your data stays yours, you can ask us for a copy of it, and you can delete your account from Settings at any time.
+- SaveFirst is free to download. Any paid subscription is billed by Apple and renews until you cancel it in your Apple Account settings.
 - Decisions about your money are yours. We are not liable for them.
 
 This summary is here for orientation only. The numbered sections below are the terms that actually apply.
@@ -124,13 +125,45 @@ When using the Service, you agree not to:
 
 We may suspend or terminate an account that breaches this section, and we may apply rate limits and other technical protections without notice.
 
-## 12. Paid features in the future
+## 12. Subscriptions and purchases
 
-**The current version of SaveFirst is free, and the App sells nothing.** There is no subscription and no in-app purchase in this release, and we do not collect or process any payment details.
+SaveFirst is free to download, and you can use it without paying. Some features may be available only with a paid subscription (a **“Subscription”**). Nothing you use for free will start charging you. A Subscription only begins when you choose to buy one.
 
-We expect to introduce a paid tier. If we do, it will be sold through the app store you installed the App from, and the price, the billing period, the renewal terms and any trial will be shown to you on the purchase screen before you buy anything. Payment would be handled by the app store, not by us, and refunds would be governed by that store’s policies. **Nothing you have today will start charging you** — a paid tier would require you to choose it.
+### Purchased through Apple
 
-We will update these Terms with full purchase and renewal terms before any paid feature goes on sale.
+Subscriptions are sold as auto-renewable subscriptions through the Apple App Store and are charged to the payment method on your Apple Account. Apple processes the payment. We never receive your card number or billing details.
+
+### What you see before you buy
+
+The purchase screen in the App shows the price, the length of the billing period, what the Subscription includes, and the length and terms of any free trial or introductory offer, before you confirm anything. Prices are set in the App Store and may vary by country.
+
+### Automatic renewal
+
+- **A Subscription renews automatically** at the end of each billing period, for the same period and at the then-current price, unless you turn off auto-renew at least 24 hours before the current period ends.
+- Your Apple Account is charged for the renewal within the 24 hours before the current period ends.
+- **Free trials.** If a Subscription comes with a free trial, it converts to a paid Subscription when the trial ends unless you cancel at least 24 hours before the end of the trial. Any unused part of a free trial is forfeited when you buy a Subscription.
+
+### Managing and cancelling
+
+You can manage or cancel a Subscription at any time in your iPhone’s **Settings → [your name] → Subscriptions**, or in your Apple Account settings in the App Store. Cancelling stops the next renewal. You keep access until the end of the period you have already paid for.
+
+**Deleting the App, or deleting your SaveFirst account, does not cancel a Subscription.** Apple bills it, so you need to cancel it with Apple.
+
+### Restoring a purchase
+
+If you reinstall the App or move to a new device signed in to the same Apple Account, use **Restore Purchases** in the App to reconnect an active Subscription.
+
+### Refunds
+
+Because Apple handles payment, Apple handles refunds, under its own policies. You can ask for one at [reportaproblem.apple.com](https://reportaproblem.apple.com). We cannot issue refunds for App Store purchases ourselves. Nothing in this section limits any right to a refund you have under the law where you live.
+
+### Price changes
+
+If the price of a Subscription changes, Apple will tell you before the new price applies. Where the law or Apple’s rules require it, you will be asked to agree to the new price first, and if you do not, the Subscription will end at the close of the current period.
+
+### Changes to what a Subscription includes
+
+The product will develop, and what is included in a Subscription may change. If we materially reduce what a Subscription includes, we will tell you in advance so that you can cancel before your next renewal.
 
 ## 13. Ownership and intellectual property
 
@@ -172,7 +205,7 @@ You agree to indemnify and hold harmless Teak Software Studio LLC and its member
 
 ## 19. Termination and deletion
 
-You may stop using the Service at any time. To remove your data as well, use **Settings → Delete account** in the App. That deletes your account and the records attached to it from our servers permanently, as described in [Section 10 of the Privacy Policy](https://savefirst.app/privacy#deletion). **It cannot be undone, so ask us for a copy of your data first.** Deleting the App from your device without deleting your account leaves your account in place.
+You may stop using the Service at any time. To remove your data as well, use **Settings → Delete account** in the App. That deletes your account and the records attached to it from our servers permanently, as described in [Section 10 of the Privacy Policy](https://savefirst.app/privacy#deletion). **It cannot be undone, so ask us for a copy of your data first.** Deleting the App from your device without deleting your account leaves your account in place. Neither one cancels a paid Subscription. Cancel it with Apple, as described in Section 12.
 
 We may suspend or end your access if you materially breach these Terms, if your use threatens the security or stability of the Service, or if we are required to do so by law. Where it is reasonable to do so, we will tell you first and give you an opportunity to request a copy of your data.
 

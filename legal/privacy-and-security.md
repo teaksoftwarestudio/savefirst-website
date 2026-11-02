@@ -1,6 +1,6 @@
 # SaveFirst — Privacy Policy & Security
 
-**Effective:** September 5, 2026 · **Last updated:** September 5, 2026
+**Effective:** September 5, 2026 · **Last updated:** October 3, 2026
 
 SaveFirst is an account-based service. The money information you enter is stored on our servers so it is there when you sign in. This page sets out exactly what we hold, who else touches it, how long we keep it, and how it is protected.
 
@@ -84,7 +84,7 @@ Stated plainly, so there is no ambiguity for you or for an App Store reviewer:
 
 - **No bank credentials.** There is no bank linking in the app. It never asks for a username, password, or one-time code for any financial institution, and we could not use one if you sent it.
 - **No imported transactions.** Nothing is pulled from your bank, card, or statements. Every record exists because you created it.
-- **No card or payment details.** The current version of the app sells nothing.
+- **No card or payment details.** If you buy a subscription in the app, Apple processes the payment. We never receive your card number or billing address.
 - **No advertising identifiers, and no cross-app or cross-site tracking.** The app does not use the IDFA, does not present an App Tracking Transparency prompt, and contains no advertising SDK.
 - **No sale of personal information, and no sharing for cross-context behavioural advertising.**
 - **No access to your contacts, photos, location, SMS, or email inbox.** The only device permissions the app requests are the microphone and speech recognition, for voice entry, and notifications if you turn reminders on.
@@ -248,7 +248,7 @@ We hold financial information, so we would rather describe our actual controls t
 - Logs are structured around request identifiers and are not designed to carry the contents of your financial records.
 - Sensitive short-lived material is erased on a schedule rather than left to accumulate — voice transcripts within about fifteen minutes, and the other windows in Section 9.
 - Records of AI requests store timing, token counts and cost. They never store the text of a request or a response.
-- We hold no payment card data, because the app currently sells nothing.
+- We hold no payment card data. Any purchase in the app is processed by Apple.
 
 ### What you control, and should
 

@@ -5,27 +5,27 @@ import { useState } from "react";
 const items = [
   {
     q: "What is the SaveFirst method, really?",
-    a: "Traditional budgeting saves whatever's left at the end of the month — which is usually nothing. SaveFirst flips that. We allocate your savings target as soon as income arrives, then show you the real, spendable balance underneath. You spend without guilt because the future is already taken care of.",
+    a: "Traditional money advice saves whatever's left at the end of the month, which is usually nothing. SaveFirst flips the order. Your savings target is set aside when income arrives, bills are accounted for, and what remains is your spendable balance. You spend without the guilt because the future is already taken care of.",
   },
   {
     q: "Does SaveFirst connect to my bank?",
-    a: "Not in the current version. SaveFirst is local-first — your data lives on your iPhone, not on our servers. You can add transactions in seconds with voice or one-tap shortcuts, and we'll detect recurring charges automatically. Bank linking is planned for a future release, opt-in only.",
+    a: "No. SaveFirst never links to your bank and never imports transactions. You add what you spend yourself, by voice or by typing, and set recurring bills once so they carry forward. Every number in the app is one you put there.",
   },
   {
     q: "How does the Pre-Spend Check decide?",
-    a: "It's deterministic, not vibes. We subtract the purchase from your spendable balance, project your remaining bills and savings target through the end of the cycle, and check against the minimum buffer you set. The recommendation always shows the math behind it — no black boxes.",
+    a: "It's arithmetic, not a guess. SaveFirst takes the price away from what's left this month, after your bills and savings are covered, and checks the result against your lifestyle limit. The answer always shows the numbers behind it. No black boxes.",
   },
   {
     q: "Is my financial data private?",
-    a: "Yes. SaveFirst stores your transactions, goals, and plan locally on your device by default. Optional iCloud backup is end-to-end encrypted. We don&apos;t sell data, we don&apos;t run ads, and we don&apos;t have a &ldquo;growth&rdquo; team. You can export everything as CSV at any time.",
+    a: "Yes. Your plan is stored in your SaveFirst account on our servers, so it's there when you sign in, and everything between the app and our servers travels over an encrypted connection. We don't sell data, we don't run ads, and there's no ad tracking. You can ask us for a copy of your data at any time, and you can delete your account from Settings whenever you want.",
   },
   {
     q: "Is there an Android version?",
-    a: "Android is on the roadmap. The current focus is making the iPhone experience as calm and trustworthy as possible. Join the waitlist to hear when Android opens for testing.",
+    a: "Not yet. Android is on the roadmap. Right now the focus is making the iPhone experience as calm and trustworthy as possible.",
   },
   {
     q: "What if I miss my savings target one month?",
-    a: "You're not in trouble. SaveFirst doesn't lecture you. We'll adjust the projection, suggest a smaller target if it's a pattern, and keep your goals on a realistic track. Life happens; the app is here to help you re-plan, not to score you.",
+    a: "You're not in trouble. SaveFirst doesn't lecture you and doesn't score you. Change the target and your plan works from the new number. Life happens; the app is here to help you re-plan, not to judge you.",
   },
 ];
 
