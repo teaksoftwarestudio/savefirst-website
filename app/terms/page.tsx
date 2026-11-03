@@ -41,7 +41,7 @@ export default function TermsPage() {
       title="Terms of Service"
       intro="These Terms are the agreement between you and Teak Software Studio LLC for the SaveFirst app and the savefirst.app website. They are written to be read, not skimmed past."
       effective="September 5, 2026"
-      updated="October 3, 2026"
+      updated="November 4, 2026"
       sections={SECTIONS}
     >
       <div className="legal-summary">
@@ -51,7 +51,7 @@ export default function TermsPage() {
           <li>You need an account and an internet connection. Your records are stored on our servers.</li>
           <li>You need to be at least 13 to use it.</li>
           <li>Your data stays yours, you can ask us for a copy of it, and you can delete your account from Settings at any time.</li>
-          <li>SaveFirst is free to download. Any paid subscription is billed by Apple and renews until you cancel it in your Apple Account settings.</li>
+          <li>SaveFirst is free to download and comes with a 7-day free trial that does not need a card. After the trial, you need a paid subscription to keep using the App. It is billed by Apple and renews until you cancel it in your Apple Account settings.</li>
           <li>Decisions about your money are yours. We are not liable for them.</li>
         </ul>
         <p>
@@ -309,10 +309,11 @@ export default function TermsPage() {
       <section id="subscriptions">
         <h2><span className="legal-num">Section 12</span>Subscriptions and purchases</h2>
         <p>
-          SaveFirst is free to download, and you can use it without paying. Some features may be
-          available only with a paid subscription (a <strong>&ldquo;Subscription&rdquo;</strong>).
-          Nothing you use for free will start charging you. A Subscription only begins when you
-          choose to buy one.
+          SaveFirst is free to download. Each account can have one 7-day free trial, which gives
+          full access and does not need a card. After the trial, you need a paid subscription (a{" "}
+          <strong>&ldquo;Subscription&rdquo;</strong>) to keep using the App. Nothing charges you
+          when the trial ends, because a Subscription only begins when you choose to buy one. Your
+          records stay in your account until you delete it.
         </p>
         <h3>Purchased through Apple</h3>
         <p>
@@ -338,9 +339,11 @@ export default function TermsPage() {
             period ends.
           </li>
           <li>
-            <strong>Free trials.</strong> If a Subscription comes with a free trial, it converts to a
-            paid Subscription when the trial ends unless you cancel at least 24 hours before the end
-            of the trial. Any unused part of a free trial is forfeited when you buy a Subscription.
+            <strong>Free trials.</strong> The 7-day free trial described above is not tied to a
+            Subscription and never turns into one. If a Subscription you buy comes with its own free
+            trial or introductory offer, the purchase screen says so, and it converts to a paid
+            Subscription when the offer ends unless you cancel at least 24 hours before the end of
+            the offer. Any unused part of a free trial is forfeited when you buy a Subscription.
           </li>
         </ul>
         <h3>Managing and cancelling</h3>
