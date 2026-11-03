@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       title="Privacy Policy & Security"
       intro="SaveFirst is an account-based service. The money information you enter is stored on our servers so it is there when you sign in. This page sets out exactly what we hold, who else touches it, how long we keep it, and how it is protected."
       effective="September 5, 2026"
-      updated="October 3, 2026"
+      updated="November 4, 2026"
       sections={SECTIONS}
     >
       <div className="legal-summary">
@@ -47,6 +47,8 @@ export default function PrivacyPage() {
           <li><strong>SaveFirst needs an account and an internet connection.</strong> Your plan, transactions and goals are stored on our servers, not only on your phone.</li>
           <li><strong>There is no bank linking.</strong> We never ask for, receive, or store bank credentials, and nothing is imported from your statements. Everything in the app is there because you entered it.</li>
           <li><strong>We use Firebase for sign-in, analytics and crash reporting</strong>, which means Google processes some data on our behalf. Named in full below.</li>
+          <li><strong>Session recording only happens if you say yes.</strong> If you allow it, we use PostHog to record which screens you open and where you tap. Text, numbers and images are blocked out on your phone before anything is sent. You can turn it off at any time in Settings → Privacy.</li>
+          <li><strong>Subscriptions are billed by Apple.</strong> We use RevenueCat to know whether your trial or subscription is active. We never receive your card details.</li>
           <li><strong>We do not sell your information</strong>, do not run ads, and do not use your financial data for advertising or profiling.</li>
           <li><strong>You can delete your account from inside the app</strong>, and it really is deleted — every row, not a flag on a record.</li>
         </ul>
@@ -125,6 +127,20 @@ export default function PrivacyPage() {
           <li>your onboarding answers, including your timezone, currency, and the questions about what you want from the app.</li>
         </ul>
 
+        <h3>Your trial and subscription</h3>
+        <p>
+          To know whether your account has access, we keep a record of your free trial and any
+          subscription: when the trial started and when it ends, which plan you bought, which store
+          billed you, when your paid access ends, and the identifier our subscription service uses
+          for your account, which is your SaveFirst account ID. Apple handles the payment itself. We
+          never receive your card number or billing address.
+        </p>
+        <p>
+          Purchases are checked through <strong>RevenueCat</strong>, a subscription service.
+          RevenueCat receives your SaveFirst account ID and the purchase records Apple provides for
+          SaveFirst, and tells us whether a subscription is active.
+        </p>
+
         <h3>When you email us</h3>
         <p>
           We receive your email address, your message, and anything you attach, and we keep the
@@ -149,7 +165,34 @@ export default function PrivacyPage() {
           and sessions, together with a Firebase installation identifier, your device model and
           operating system version, and an approximate region derived from your IP address. We do{" "}
           <strong>not</strong> send the amounts, merchants, notes, or any other content of your
-          financial records to analytics.
+          financial records to analytics. Firebase Analytics is on for everyone who uses the app,
+          and the app has no setting to turn it off.
+        </p>
+
+        <h3>Session recording, only if you allow it</h3>
+        <p>
+          The first time you reach setup or your home screen, the app asks whether we may record
+          how you use it. If you say no or close the question, nothing is recorded, and the app
+          works the same either way.
+        </p>
+        <p>
+          If you say yes, the app uses <strong>PostHog</strong> to record the screens you open and
+          where you tap, when the app opens and closes, and your device model, operating system and
+          app version. PostHog also receives your IP address as part of the connection and may
+          derive an approximate region from it.
+        </p>
+        <p>
+          Text, numbers, images and charts are blocked out on your device before a recording is
+          sent, so the amounts, merchants and notes you enter should not be visible in it. This is
+          automatic, and no automated process is perfect. Once you are signed in, recordings are
+          labelled with your account identifier, not your name or email address.
+        </p>
+        <p>
+          You can change your answer at any time in{" "}
+          <strong>Settings → Privacy → Session recording</strong>. Turning it off stops recording
+          straight away. Logging out or deleting your account also stops recording, and the app
+          asks again the next time someone sets it up on that device. Anything captured just before
+          you turn it off may still finish uploading.
         </p>
 
         <h3>Crash and diagnostic reports</h3>
@@ -239,6 +282,8 @@ export default function PrivacyPage() {
           <li>answer your support messages;</li>
           <li>keep the service available, diagnose faults, and prevent abuse;</li>
           <li>understand in aggregate which features are used, so we know what to improve;</li>
+          <li>find and fix confusing or broken screens, using session recordings if you have allowed them;</li>
+          <li>check whether your account has an active free trial or subscription;</li>
           <li>meet a legal obligation where one applies.</li>
         </ul>
         <p>
@@ -265,6 +310,7 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>Sign-in tokens</strong>, held in the iOS Keychain (encrypted system storage), so you stay signed in;</li>
           <li><strong>App preferences</strong> such as theme and notification choices;</li>
+          <li><strong>Your session recording answer</strong>, and, if you have allowed recording, any recording still waiting to upload;</li>
           <li><strong>Scheduled reminders</strong>, which are local notifications created on your device — nothing is pushed from us;</li>
           <li><strong>An onboarding draft</strong>, if you start setting up before creating an account. It stays on the device until you finish, and is cleared then.</li>
         </ul>
@@ -278,8 +324,9 @@ export default function PrivacyPage() {
         <h2><span className="legal-num">Section 8</span>Service providers</h2>
         <p>
           These are the companies that process data on our behalf so the service can run. Each is
-          bound to use it only to provide their service to us. There are no others, and we do not
-          sell to or share with anyone else.
+          bound to use it only to provide their service to us, and to give it the same or equal
+          protection as this policy describes. There are no others, and we do not sell to or share
+          with anyone else.
         </p>
         <div className="legal-table-scroll">
           <table className="legal-table">
@@ -304,7 +351,15 @@ export default function PrivacyPage() {
               </tr>
               <tr>
                 <td>Apple</td>
-                <td>App distribution and updates, Sign in with Apple, and the speech recognition described in Section 5.</td>
+                <td>App distribution and updates, Sign in with Apple, payment for subscriptions, and the speech recognition described in Section 5.</td>
+              </tr>
+              <tr>
+                <td>RevenueCat</td>
+                <td>Keeps track of which subscription belongs to which account, using your SaveFirst account ID and the purchase records Apple provides.</td>
+              </tr>
+              <tr>
+                <td>PostHog</td>
+                <td>Session recording, only if you allow it. Recordings are stored in the United States.</td>
               </tr>
               <tr>
                 <td>Google (Forms)</td>
@@ -365,6 +420,18 @@ export default function PrivacyPage() {
                 <td>Held by Firebase under Google&rsquo;s retention settings for those products.</td>
               </tr>
               <tr>
+                <td>Your trial and subscription record</td>
+                <td>While your account exists. Deleted when you delete your account.</td>
+              </tr>
+              <tr>
+                <td>Session recordings</td>
+                <td>Kept for 30 days and then deleted.</td>
+              </tr>
+              <tr>
+                <td>Subscription records at RevenueCat</td>
+                <td>Held by RevenueCat under its retention settings.</td>
+              </tr>
+              <tr>
                 <td>Waitlist email address</td>
                 <td>Until launch and a reasonable period after, or until you ask us to remove it.</td>
               </tr>
@@ -385,14 +452,23 @@ export default function PrivacyPage() {
           attached to it: transactions and their splits and tags, accounts and balances, bills and
           their occurrences and payment allocations, goals and contributions, spending caps,
           investments, merchants, tags, your finance profile, saved Pre-Spend decisions, cached
-          insights and snapshots, voice command records, and the metadata records of any AI
-          requests. The app also deletes your Firebase sign-in identity.
+          insights and snapshots, voice command records, your trial and subscription record, and
+          the metadata records of any AI requests. The app also deletes your Firebase sign-in
+          identity and stops any session recording.
         </p>
         <p>
           It is immediate and it is not reversible. <strong>Ask us for a copy of anything you want
-          to keep before you delete</strong> — see Section 11. Copies may persist for a short time in encrypted
-          infrastructure backups before they age out, and analytics and crash data already held by
-          Firebase are governed by Google&rsquo;s retention for those products.
+          to keep before you delete</strong> — see Section 11. Copies may persist for a short time
+          in encrypted infrastructure backups before they age out. Analytics and crash data already
+          held by Firebase are governed by Google&rsquo;s retention for those products. Session
+          recordings already held by PostHog and subscription records held by RevenueCat are not
+          removed when you delete your account, and they stay until the retention periods in
+          Section 9 end.
+        </p>
+        <p>
+          <strong>Deleting your account does not cancel a subscription.</strong> Apple bills it, so
+          cancel it in your Apple Account settings first. The app reminds you of this before it
+          deletes anything.
         </p>
       </section>
 
@@ -404,6 +480,8 @@ export default function PrivacyPage() {
           <li><strong>Deletion:</strong> Settings → Delete account, as described above.</li>
           <li><strong>Notifications:</strong> turn reminders off in the app or in iOS Settings.</li>
           <li><strong>Voice:</strong> decline or revoke microphone and speech permission in iOS Settings; the rest of the app is unaffected.</li>
+          <li><strong>Session recording:</strong> turn it on or off at any time in Settings → Privacy → Session recording. Saying no changes nothing else in the app.</li>
+          <li><strong>Subscriptions:</strong> manage or cancel in your Apple Account settings.</li>
           <li><strong>Sign out</strong> at any time from Settings.</li>
           <li><strong>Waitlist:</strong> unsubscribe from any email we send, or ask us to delete your address.</li>
         </ul>
@@ -446,7 +524,8 @@ export default function PrivacyPage() {
         </p>
         <p>
           The categories we collect are set out in Sections 2 and 3: identifiers, your email
-          address, the financial information you enter, device and usage data, and diagnostic data.
+          address, the financial information you enter, your trial and subscription status, device
+          and usage data (including session recordings, if you allow them), and diagnostic data.
           The account deletion in Section 10 satisfies a deletion request in full; you can also
           write to us at the address in Section 20, including to appeal a decision. If we deny an
           appeal, you may contact your state attorney general.
@@ -462,8 +541,8 @@ export default function PrivacyPage() {
         <p>Our lawful bases are:</p>
         <ul>
           <li><strong>Performance of a contract</strong> — running your account and storing the plan you asked us to keep;</li>
-          <li><strong>Legitimate interests</strong> — keeping the service secure and available, preventing abuse, fixing crashes, and answering your messages;</li>
-          <li><strong>Consent</strong> — analytics, voice input, notifications, and waitlist email, each of which you can decline or withdraw without losing the rest of the app;</li>
+          <li><strong>Legitimate interests</strong> — keeping the service secure and available, preventing abuse, fixing crashes, understanding in aggregate which features are used, and answering your messages;</li>
+          <li><strong>Consent</strong> — session recording, voice input, notifications, and waitlist email, each of which you can decline or withdraw without losing the rest of the app;</li>
           <li><strong>Legal obligation</strong> — where a law requires us to retain or disclose something.</li>
         </ul>
         <p>
@@ -477,7 +556,8 @@ export default function PrivacyPage() {
         <h2><span className="legal-num">Section 15</span>International transfers</h2>
         <p>
           SaveFirst is operated from the United States by a Texas company, on infrastructure
-          provided by OVHcloud, with Google, Cloudflare and Apple processing parts of the service.
+          provided by OVHcloud, with Google, Cloudflare, Apple and RevenueCat processing parts of
+          the service, and PostHog if you allow session recording.
           Your information may therefore be stored and processed in countries other than the one you
           live in, including the United States and the European Union.
         </p>

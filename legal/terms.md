@@ -1,6 +1,6 @@
 # SaveFirst — Terms of Service
 
-**Effective:** September 5, 2026 · **Last updated:** October 3, 2026
+**Effective:** September 5, 2026 · **Last updated:** November 4, 2026
 
 These Terms are the agreement between you and Teak Software Studio LLC for the SaveFirst app and the savefirst.app website. They are written to be read, not skimmed past.
 
@@ -14,7 +14,7 @@ _Also published at https://savefirst.app/terms_
 - You need an account and an internet connection. Your records are stored on our servers.
 - You need to be at least 13 to use it.
 - Your data stays yours, you can ask us for a copy of it, and you can delete your account from Settings at any time.
-- SaveFirst is free to download. Any paid subscription is billed by Apple and renews until you cancel it in your Apple Account settings.
+- SaveFirst is free to download and comes with a 7-day free trial that does not need a card. After the trial, you need a paid subscription to keep using the App. It is billed by Apple and renews until you cancel it in your Apple Account settings.
 - Decisions about your money are yours. We are not liable for them.
 
 This summary is here for orientation only. The numbered sections below are the terms that actually apply.
@@ -127,7 +127,7 @@ We may suspend or terminate an account that breaches this section, and we may ap
 
 ## 12. Subscriptions and purchases
 
-SaveFirst is free to download, and you can use it without paying. Some features may be available only with a paid subscription (a **“Subscription”**). Nothing you use for free will start charging you. A Subscription only begins when you choose to buy one.
+SaveFirst is free to download. Each account can have one 7-day free trial, which gives full access and does not need a card. After the trial, you need a paid subscription (a **“Subscription”**) to keep using the App. Nothing charges you when the trial ends, because a Subscription only begins when you choose to buy one. Your records stay in your account until you delete it.
 
 ### Purchased through Apple
 
@@ -141,7 +141,7 @@ The purchase screen in the App shows the price, the length of the billing period
 
 - **A Subscription renews automatically** at the end of each billing period, for the same period and at the then-current price, unless you turn off auto-renew at least 24 hours before the current period ends.
 - Your Apple Account is charged for the renewal within the 24 hours before the current period ends.
-- **Free trials.** If a Subscription comes with a free trial, it converts to a paid Subscription when the trial ends unless you cancel at least 24 hours before the end of the trial. Any unused part of a free trial is forfeited when you buy a Subscription.
+- **Free trials.** The 7-day free trial described above is not tied to a Subscription and never turns into one. If a Subscription you buy comes with its own free trial or introductory offer, the purchase screen says so, and it converts to a paid Subscription when the offer ends unless you cancel at least 24 hours before the end of the offer. Any unused part of a free trial is forfeited when you buy a Subscription.
 
 ### Managing and cancelling
 
