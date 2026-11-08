@@ -915,7 +915,7 @@ section.tight { padding: 80px 0; }
 
 
 /* FAQ */
-.faq { background: var(--canvas); }
+.faq { background: var(--paper); }
 .faq-grid { max-width: 820px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--line); }
 .faq-q { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 4px; width: 100%; background: none; border: 0; cursor: pointer; font-family: var(--font-display), system-ui, sans-serif; text-align: left; font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
