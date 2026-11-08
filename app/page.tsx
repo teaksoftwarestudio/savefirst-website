@@ -78,18 +78,18 @@ export default function Home() {
           </div>
 
           <div className="phone-stack" aria-hidden="true">
-            {/* Back-left phone */}
+            {/* Back-left phone: Check (its content is left-aligned, so the visible half reads) */}
             <motion.div
               className="phone p1"
-              initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.88 }}
-              animate={{ opacity: 1, x: 0, rotate: -6, scale: 1 }}
+              initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.82 }}
+              animate={{ opacity: 1, x: 0, rotate: -6, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 60, damping: 18, delay: 0.35 }}
             >
               <div className="notch"></div>
               <div className="screen">
                 <div className="viewport">
                   <Statusbar />
-                  <div className="app"><PhoneGoals /></div>
+                  <div className="app"><PhoneCheck /></div>
                 </div>
               </div>
             </motion.div>
@@ -98,7 +98,7 @@ export default function Home() {
             <motion.div
               className="phone p2"
               initial={{ opacity: 0, y: 60, scale: 0.92 }}
-              animate={{ opacity: 1, y: 0, scale: 1.06 }}
+              animate={{ opacity: 1, y: 0, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 55, damping: 16, delay: 0.2 }}
             >
               <div className="notch"></div>
@@ -110,18 +110,18 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Back-right phone */}
+            {/* Back-right phone: Goals */}
             <motion.div
               className="phone p3"
-              initial={{ opacity: 0, x: 60, rotate: 10, scale: 0.88 }}
-              animate={{ opacity: 1, x: 0, rotate: 6, scale: 1 }}
+              initial={{ opacity: 0, x: 60, rotate: 10, scale: 0.82 }}
+              animate={{ opacity: 1, x: 0, rotate: 6, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 60, damping: 18, delay: 0.45 }}
             >
               <div className="notch"></div>
               <div className="screen">
                 <div className="viewport">
                   <Statusbar />
-                  <div className="app"><PhoneCheck /></div>
+                  <div className="app"><PhoneGoals /></div>
                 </div>
               </div>
             </motion.div>
