@@ -47,6 +47,7 @@ export default function NavBar() {
             <a href="#how">How it works</a>
             <a href="#features">Features</a>
             <a href="#faq">FAQ</a>
+            <a href="/blog">Blog</a>
             <a href="/support">Support</a>
             <a href={CTA.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">{CTA.label}</a>
           </nav>
@@ -68,6 +69,7 @@ export default function NavBar() {
           <a href="#how" onClick={close}>How it works</a>
           <a href="#features" onClick={close}>Features</a>
           <a href="#faq" onClick={close}>FAQ</a>
+          <a href="/blog" onClick={close}>Blog</a>
           <a href="/support" onClick={close}>Support</a>
           <a href={CTA.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary" onClick={close} style={{ width: "100%", justifyContent: "center" }}>{CTA.label}</a>
         </nav>
