@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       title="Privacy Policy & Security"
       intro="SaveFirst is an account-based service. The money information you enter is stored on our servers so it is there when you sign in. This page sets out exactly what we hold, who else touches it, how long we keep it, and how it is protected."
       effective="September 5, 2026"
-      updated="November 4, 2026"
+      updated="November 11, 2026"
       sections={SECTIONS}
     >
       <div className="legal-summary">
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
           <li><strong>Session recording only happens if you say yes.</strong> If you allow it, we use PostHog to record which screens you open and where you tap. Text, numbers and images are blocked out on your phone before anything is sent. You can turn it off at any time in Settings → Privacy.</li>
           <li><strong>Subscriptions are billed by Apple.</strong> We use RevenueCat to know whether your trial or subscription is active. We never receive your card details.</li>
           <li><strong>We do not sell your information</strong>, do not run ads, and do not use your financial data for advertising or profiling.</li>
-          <li><strong>You can delete your account from inside the app</strong>, and it really is deleted — every row, not a flag on a record.</li>
+          <li><strong>You can delete your account from inside the app</strong>, and it really is deleted — every row, not a flag on a record. The one thing we keep is a one-way hash of your email, so a returning account gets its purchases back and only one free trial is given per email.</li>
         </ul>
         <p>This summary is for orientation. The sections below are the full statement.</p>
       </div>
@@ -132,8 +132,20 @@ export default function PrivacyPage() {
           To know whether your account has access, we keep a record of your free trial and any
           subscription: when the trial started and when it ends, which plan you bought, which store
           billed you, when your paid access ends, and the identifier our subscription service uses
-          for your account, which is your SaveFirst account ID. Apple handles the payment itself. We
-          never receive your card number or billing address.
+          for your account, which is normally your SaveFirst account ID. Apple handles the payment
+          itself. We never receive your card number or billing address.
+        </p>
+        <p>
+          We also keep a <strong>billing identity</strong> tied to your email address rather than
+          to a single account. It holds a one-way SHA-256 hash of your email (lowercased and
+          trimmed), the identifier our subscription service uses for your purchases, and the date
+          your email first started a free trial or paid. We never store your email in this record,
+          and the hash cannot be turned back into your email. It lets us restore your purchases if
+          you sign up again with the same email, and lets us offer only one free trial per email.
+          Because the same email always produces the same hash, this record is still linked to you
+          by anyone who already knows your email address, so we treat it as personal information.
+          If you sign up again with an email that has a billing identity, your new account uses the
+          identifier from that record rather than a new one.
         </p>
         <p>
           Purchases are checked through <strong>RevenueCat</strong>, a subscription service.
@@ -284,6 +296,7 @@ export default function PrivacyPage() {
           <li>understand in aggregate which features are used, so we know what to improve;</li>
           <li>find and fix confusing or broken screens, using session recordings if you have allowed them;</li>
           <li>check whether your account has an active free trial or subscription;</li>
+          <li>restore purchases to a returning account and offer only one free trial per email, using the email hash described in Section 2;</li>
           <li>meet a legal obligation where one applies.</li>
         </ul>
         <p>
@@ -432,6 +445,10 @@ export default function PrivacyPage() {
                 <td>Held by RevenueCat under its retention settings.</td>
               </tr>
               <tr>
+                <td>Billing identity (a one-way hash of your email, your purchase identifier, and the date a free trial was first used)</td>
+                <td>Kept after you delete your account, with its link to the deleted account removed, for as long as SaveFirst is offered, so returning purchases can be restored and only one free trial is given per email. Deleted sooner if you ask us — see Section 10.</td>
+              </tr>
+              <tr>
                 <td>Waitlist email address</td>
                 <td>Until launch and a reasonable period after, or until you ask us to remove it.</td>
               </tr>
@@ -457,6 +474,16 @@ export default function PrivacyPage() {
           identity and stops any session recording.
         </p>
         <p>
+          <strong>The one record we keep is your billing identity.</strong> When you delete your
+          account, we keep a one-way hash of your email, which cannot be turned back into your
+          email, along with your purchase identifier and the date a free trial was first used. Its
+          link to your deleted account is removed. It is used only to restore your purchases if you
+          come back with the same email and to allow only one free trial per email. If you want
+          this record deleted too, email us from that address and we will remove it. If you do,
+          purchases made under the old account may no longer be restored automatically, and the
+          email may become eligible for another free trial.
+        </p>
+        <p>
           It is immediate and it is not reversible. <strong>Ask us for a copy of anything you want
           to keep before you delete</strong> — see Section 11. Copies may persist for a short time
           in encrypted infrastructure backups before they age out. Analytics and crash data already
@@ -477,7 +504,7 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>Access and correction:</strong> everything about your money is visible and editable in the app.</li>
           <li><strong>Portability:</strong> email us and we will send you a copy of your data in a machine-readable format. A one-tap export inside the app is on the way; until it ships, ask us and we will do it for you.</li>
-          <li><strong>Deletion:</strong> Settings → Delete account, as described above.</li>
+          <li><strong>Deletion:</strong> Settings → Delete account, as described above. To also remove the billing identity kept after deletion, email us.</li>
           <li><strong>Notifications:</strong> turn reminders off in the app or in iOS Settings.</li>
           <li><strong>Voice:</strong> decline or revoke microphone and speech permission in iOS Settings; the rest of the app is unaffected.</li>
           <li><strong>Session recording:</strong> turn it on or off at any time in Settings → Privacy → Session recording. Saying no changes nothing else in the app.</li>
@@ -526,8 +553,8 @@ export default function PrivacyPage() {
           The categories we collect are set out in Sections 2 and 3: identifiers, your email
           address, the financial information you enter, your trial and subscription status, device
           and usage data (including session recordings, if you allow them), and diagnostic data.
-          The account deletion in Section 10 satisfies a deletion request in full; you can also
-          write to us at the address in Section 20, including to appeal a decision. If we deny an
+          The account deletion in Section 10 deletes everything except the billing identity
+          described there, which we also remove if you ask; you can also write to us at the address in Section 20, including to appeal a decision. If we deny an
           appeal, you may contact your state attorney general.
         </p>
       </section>
@@ -541,7 +568,7 @@ export default function PrivacyPage() {
         <p>Our lawful bases are:</p>
         <ul>
           <li><strong>Performance of a contract</strong> — running your account and storing the plan you asked us to keep;</li>
-          <li><strong>Legitimate interests</strong> — keeping the service secure and available, preventing abuse, fixing crashes, understanding in aggregate which features are used, and answering your messages;</li>
+          <li><strong>Legitimate interests</strong> — keeping the service secure and available, preventing abuse (including keeping the email hash so each email gets only one free trial and keeps its purchases), fixing crashes, understanding in aggregate which features are used, and answering your messages;</li>
           <li><strong>Consent</strong> — session recording, voice input, notifications, and waitlist email, each of which you can decline or withdraw without losing the rest of the app;</li>
           <li><strong>Legal obligation</strong> — where a law requires us to retain or disclose something.</li>
         </ul>
